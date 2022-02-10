@@ -1,0 +1,29 @@
+.container-addCertificate {
+    margin: 10px !important;
+}
+
+.title {
+}
+.addCertificate {
+    padding: 20px;
+}
+.input-id {
+}
+.addCV-Info {
+    padding: 20px;
+}
+.input-file {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+.button-submit-certificate {
+    background-color: #3e74be !important;
+    color: white !important;
+    margin-left: 20px !important;
+}
+
+.button-submit-certificate:hover {
+    background-color: #2b3c53 !important;
+}

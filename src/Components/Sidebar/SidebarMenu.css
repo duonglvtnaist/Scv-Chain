@@ -1,0 +1,20 @@
+.sidebar_Org {
+    background: #3e74be;
+    margin-bottom: 10px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 !important;
+}
+
+.menu-parent {
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    align-items: center;
+}
+
+.menu-item {
+    background-color: #3e74be;
+    border: none !important;
+}

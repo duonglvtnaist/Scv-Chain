@@ -1,0 +1,24 @@
+.sidebarListItem {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    color: white;
+    align-items: center;
+    font-weight: 800;
+    cursor: pointer;
+    justify-content: flex-start;
+    background-color: #1364b1;
+    padding: 20px;
+}
+
+.sidebarListItem:hover {
+    background-color: #1364b1;
+}
+
+.link {
+    width: 100%;
+}
+
+.link:focus {
+    background-color: #2d3f50;
+}

@@ -1,0 +1,25 @@
+.container-view-cv {
+    margin: 10px;
+}
+
+.show-cv {
+    flex: 1;
+    padding: 20px;
+    -webkit-box-shadow: 0px 0px 15px -10px #000000;
+    box-shadow: 0px 0px 15px -10px #000000;
+}
+
+.show-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(112, 108, 108);
+}
+
+.cv-info {
+    margin: 20px 0;
+    color: #555;
+}
+
+.show-content {
+    margin-left: 10px;
+}

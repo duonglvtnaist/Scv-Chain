@@ -1,0 +1,27 @@
+.container-revokeCV {
+    margin: 10px;
+}
+.title {
+    /* text-align: center;
+    font-weight: bold; */
+}
+.revokeCV {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.input-cv-id {
+    margin-bottom: 10px;
+}
+.input-cid {
+    margin-bottom: 10px;
+}
+.button-revoke-cv {
+    background-color: #3e74be !important;
+    color: white !important;
+    margin: 0 10px 20px 20px !important;
+}
+
+.button-revoke-cv:hover {
+    background-color: #2b3c53 !important;
+}

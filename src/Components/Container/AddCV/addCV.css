@@ -1,0 +1,27 @@
+.container-addCV {
+    margin: 10px !important;
+}
+
+.addCV {
+    padding: 20px;
+}
+.addCV-Info {
+    padding: 20px;
+    border: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-cv {
+    margin-bottom: 10px;
+}
+
+.button-submit-cv {
+    background-color: #3e74be !important;
+    color: white !important;
+    margin-left: 20px !important;
+}
+
+.button-submit-cv:hover {
+    background-color: #2b3c53 !important;
+}
