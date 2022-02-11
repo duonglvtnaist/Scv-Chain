@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { Icon, Dropdown } from 'semantic-ui-react'
+import { Icon, Dropdown, Grid } from 'semantic-ui-react'
 import MenuItem from '../Menu/MenuItem'
 import './SidebarMenu.css'
 
 export default class SidebarMenu extends Component {
   render() {
     return (
-      <div className="sidebar_Org">
+      <div className="sidebar">
         <Dropdown text="System Manage" className="menu-parent">
           <Dropdown.Menu className="menu-item">
             <MenuItem
@@ -31,11 +31,6 @@ export default class SidebarMenu extends Component {
               nameIcon="user secret"
             />
             <MenuItem link="/view-cv" title=" View CV" nameIcon="user secret" />
-            <MenuItem
-              link="/revoke-cv"
-              title=" Revoke CV"
-              nameIcon="user secret"
-            />
           </Dropdown.Menu>
         </Dropdown>
       </div>

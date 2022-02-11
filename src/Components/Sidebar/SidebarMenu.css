@@ -1,20 +1,25 @@
-.sidebar_Org {
-    background: #3e74be;
+.sidebar {
     margin-bottom: 10px;
-    padding: 20px;
+    padding: 10px;
     display: flex;
     justify-content: space-evenly;
     margin: 0 !important;
 }
 
 .menu-parent {
-    color: white;
+    color: rgb(37, 32, 32);
     font-weight: bold;
     font-size: 16px;
     align-items: center;
+    padding: 10px 50px;
 }
 
 .menu-item {
-    background-color: #3e74be;
+    background-color: rgb(241, 241, 241) !important;
     border: none !important;
+}
+
+.menu-parent:hover {
+    background-color: rgb(236, 236, 236);
+    border-radius: 10px;
 }

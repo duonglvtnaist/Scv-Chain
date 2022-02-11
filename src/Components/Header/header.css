@@ -1,11 +1,6 @@
-/* .header {
-    width: 100%;
-    height: 60px;
-    background-color: rgb(62, 104, 184);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-} */
+body {
+    background-color: rgb(248, 248, 248);
+}
 
 .header-left {
     width: 100px;
@@ -15,7 +10,7 @@
 .logo {
     font-size: 20px;
     font-weight: 800;
-    color: aliceblue;
+    color: rgb(7, 17, 26);
 }
 
 .header-right {

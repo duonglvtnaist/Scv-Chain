@@ -14,7 +14,6 @@ export default class SystemManage extends Component {
     return (
       <Router>
         <Header />
-        <SidebarMenu />
         <Routes>
           <Route path="/add-cv" element={<AddCV />}></Route>
           <Route path="/add-certificate" element={<AddCertificate />}></Route>

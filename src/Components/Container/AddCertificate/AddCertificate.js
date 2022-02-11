@@ -13,37 +13,35 @@ import './addCertificate.css'
 
 export default function AddCertificate() {
   return (
-    <div className="container-addCertificate">
-      <Grid>
-        <Grid.Column>
+    <Grid style={{ marginTop: '10px' }}>
+      <Grid.Column>
+        <Container>
           <Segment className="title">ADD CERTIFICATE</Segment>
-          <Container>
-            <Segment.Group>
-              <div className="addCertificate">
-                <Input
-                  label={{ basic: true, content: 'ACCOUNT ID' }}
-                  labelPosition="left"
-                  placeholder="Enter ID ..."
-                  className="input-id"
-                ></Input>
-                <div className="addCV-Info">
-                  <div style={{ paddingBottom: '10px' }}>
-                    {/* <label className="input-file">
+          <Segment.Group>
+            <div className="addCertificate">
+              <Input
+                label={{ basic: true, content: 'ACCOUNT ID' }}
+                labelPosition="left"
+                placeholder="Enter ID ..."
+                className="input-id"
+              ></Input>
+              <div className="addCV-Info">
+                <div style={{ paddingBottom: '10px' }}>
+                  {/* <label className="input-file">
                   <Icon name="upload" />
                   Choose file <input type="file" id="getFile" />
                 </label> */}
-                    <input type="file" id="getFile" />
-                  </div>
-                  <Form>
-                    <TextArea placeholder="Description ..." />
-                  </Form>
+                  <input type="file" id="getFile" />
                 </div>
-                <Button className="button-submit-certificate">SUBMIT</Button>
+                <Form>
+                  <TextArea placeholder="Description ..." />
+                </Form>
               </div>
-            </Segment.Group>
-          </Container>
-        </Grid.Column>
-      </Grid>
-    </div>
+              <Button className="button-submit-certificate">SUBMIT</Button>
+            </div>
+          </Segment.Group>
+        </Container>
+      </Grid.Column>
+    </Grid>
   )
 }

@@ -1,14 +1,5 @@
 .sidebarListItem {
-    height: 50px;
-    width: 100%;
-    display: flex;
-    color: white;
-    align-items: center;
-    font-weight: 800;
     cursor: pointer;
-    justify-content: flex-start;
-    background-color: #1364b1;
-    padding: 20px;
 }
 
 .sidebarListItem:hover {
