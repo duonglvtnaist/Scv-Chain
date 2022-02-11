@@ -8,6 +8,7 @@ import {
   TextArea,
   Icon,
   Container,
+  Checkbox,
 } from 'semantic-ui-react'
 import './addCertificate.css'
 
@@ -32,7 +33,26 @@ export default function AddCertificate() {
                   Choose file <input type="file" id="getFile" />
                 </label> */}
                   <input type="file" id="getFile" />
+                  <Checkbox label="Public" style={{ marginLeft: '15px' }} />
                 </div>
+                <Input
+                  label={{ basic: true, content: 'OrigDate' }}
+                  labelPosition="left"
+                  placeholder="OrigDate"
+                  className="input-cv"
+                />
+                <Input
+                  label={{ basic: true, content: 'ExpDate' }}
+                  labelPosition="left"
+                  placeholder="ExpDate"
+                  className="input-cv"
+                />
+                <Input
+                  label={{ basic: true, content: 'Type' }}
+                  labelPosition="left"
+                  placeholder="Type"
+                  className="input-cv"
+                />
                 <Form>
                   <TextArea placeholder="Description ..." />
                 </Form>

@@ -32,18 +32,6 @@ export default function AddCV() {
                   placeholder="CID"
                   className="input-cv"
                 />
-                <Input
-                  label={{ basic: true, content: 'OrigDate' }}
-                  labelPosition="left"
-                  placeholder="OrigDate"
-                  className="input-cv"
-                />
-                <Input
-                  label={{ basic: true, content: 'ExpDate' }}
-                  labelPosition="left"
-                  placeholder="ExpDate"
-                  className="input-cv"
-                />
                 <Form>
                   <TextArea placeholder="Description ..." />
                 </Form>
