@@ -44,6 +44,11 @@ export default class SidebarMenu extends Component {
               title=" Add Certificate"
               nameIcon="user secret"
             />
+            <MenuItem
+              link="/org/cv-request"
+              title=" CV Request"
+              nameIcon="user secret"
+            />
           </Dropdown.Menu>
         </Dropdown>
       </div>
