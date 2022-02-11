@@ -24,6 +24,12 @@ export default class SystemManage extends Component {
           <Route path="/org/view-cv" element={<ViewCV />}></Route>
           <Route path="/org/cv-request" element={<CvRequest />}></Route>
 
+          <Route path="/user/add-cv" element={<AddCV />}></Route>
+          <Route
+            path="/user/add-certificate"
+            element={<AddCertificate />}
+          ></Route>
+
           <Route
             path="/sys-man/approve-or-revoke-sys-man"
             element={<ApproveSysMan />}
