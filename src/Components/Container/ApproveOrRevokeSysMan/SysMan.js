@@ -25,16 +25,18 @@ export default class SysMan extends Component {
                 className="input-id"
                 // action={{ icon: 'search' }}
               ></Input>
-              <Form>
+              <Form style={{ paddingBottom: '20px' }}>
                 <TextArea placeholder="Description ..." />
               </Form>
-              <Button.Group className="button-submit">
-                <Button>REVOKE</Button>
-                <Button.Or />
-                <Button positive className="button-approve">
-                  APPROVE
-                </Button>
-              </Button.Group>
+              <div className="button-submit">
+                <Button.Group>
+                  <Button>REVOKE</Button>
+                  <Button.Or />
+                  <Button positive className="button-approve">
+                    APPROVE
+                  </Button>
+                </Button.Group>
+              </div>
             </Segment.Group>
           </Container>
         </Grid.Column>

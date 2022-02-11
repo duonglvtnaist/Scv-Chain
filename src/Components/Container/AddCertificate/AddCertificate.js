@@ -57,7 +57,9 @@ export default function AddCertificate() {
                   <TextArea placeholder="Description ..." />
                 </Form>
               </div>
-              <Button className="button-submit-certificate">SUBMIT</Button>
+              <div className="button-submit">
+                <Button className="button-submit-certificate">SUBMIT</Button>
+              </div>
             </div>
           </Segment.Group>
         </Container>

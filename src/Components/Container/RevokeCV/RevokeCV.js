@@ -32,7 +32,9 @@ export default function RevokeCV() {
                 className="input-cid"
               />
             </div>
-            <Button className="button-revoke-cv">REVOKE</Button>
+            <div className="button-submit">
+              <Button className="button-revoke-cv">REVOKE</Button>
+            </div>
           </Segment.Group>
         </Container>
       </Grid.Column>

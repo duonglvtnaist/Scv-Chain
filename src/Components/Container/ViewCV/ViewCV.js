@@ -6,23 +6,11 @@ import {
   Dropdown,
   Container,
   Icon,
+  Button,
 } from 'semantic-ui-react'
 import './viewCV.css'
-import { useSubstrate } from '../../../substrate-lib'
 
 export default function ViewCV() {
-  const friendOptions = [
-    {
-      key: 'Jenny Hess',
-      text: 'Jenny Hess',
-      value: '5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY',
-    },
-    {
-      key: 'Elliot Fu',
-      text: 'Elliot Fu',
-      value: '5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQ',
-    },
-  ]
   return (
     <Grid style={{ marginTop: '10px' }}>
       <Grid.Column>
@@ -30,23 +18,26 @@ export default function ViewCV() {
           <Segment className="title">View CV</Segment>
           <Segment.Group>
             <div className="view-cv">
-              <Dropdown
-                selection
-                fluid
-                placeholder="Select an account"
-                options={friendOptions}
-              />
+              <Input
+                label={{ basic: true, content: 'CV EnKey' }}
+                labelPosition="left"
+                placeholder="CV EnKey ..."
+                className="input-id"
+              ></Input>
+              <div className="button-view">
+                <Button className="button-view-cv">View</Button>
+              </div>
             </div>
           </Segment.Group>
           <Segment.Group>
             <div className="show-cv">
-              <span className="show-title">CV INFORMATION OF JENNY HESS</span>
+              <span className="show-title">CV INFORMATION</span>
               <div className="cv-info">
                 <label>CID: </label>
                 <span className="show-content">0</span>
               </div>
               <div className="cv-info">
-                <label>ORG: </label>
+                <label>Owner ID: </label>
                 <span className="show-content">
                   5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY
                 </span>
@@ -59,6 +50,14 @@ export default function ViewCV() {
               <div className="cv-info">
                 <label>METADATA: </label>
                 <span className="show-content">0x6d6f74</span>
+              </div>
+              <div className="cv-info">
+                <label>OrigDate: </label>
+                <span className="show-content">01/01/2022</span>
+              </div>
+              <div className="cv-info">
+                <label>ExpDate: </label>
+                <span className="show-content">31/12/2022</span>
               </div>
             </div>
           </Segment.Group>

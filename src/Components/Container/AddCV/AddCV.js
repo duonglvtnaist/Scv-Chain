@@ -36,7 +36,9 @@ export default function AddCV() {
                   <TextArea placeholder="Description ..." />
                 </Form>
               </div>
-              <Button className="button-submit-cv">SUBMIT</Button>
+              <div className="button-submit">
+                <Button className="button-submit-cv">SUBMIT</Button>
+              </div>
             </div>
           </Segment.Group>
         </Container>
