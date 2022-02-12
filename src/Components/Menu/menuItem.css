@@ -3,7 +3,7 @@
 }
 
 .sidebarListItem:hover {
-    background-color: #1364b1;
+    background-color: rgb(236, 236, 236) !important;
 }
 
 .link {

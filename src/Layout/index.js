@@ -8,6 +8,8 @@ import AddCertificate from '../Components/Container/AddCertificate/AddCertificat
 import ViewCV from '../Components/Container/ViewCV/ViewCV'
 import AddCV from './../Components/Container/AddCV/AddCV'
 import CvRequest from './../Components/Container/Cv Request/CvRequest'
+import Profile from './../Components/Container/Profile/Profile'
+import EditProfile from './../Components/Container/Profile/EditProfile'
 
 export default class SystemManage extends Component {
   render() {
@@ -29,6 +31,9 @@ export default class SystemManage extends Component {
             path="/user/add-certificate"
             element={<AddCertificate />}
           ></Route>
+
+          <Route path="/profile" element={<Profile />}></Route>
+          <Route path="/edit-profile" element={<EditProfile />}></Route>
 
           <Route
             path="/sys-man/approve-or-revoke-sys-man"

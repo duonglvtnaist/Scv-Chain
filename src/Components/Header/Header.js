@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { Container, Icon, Menu } from 'semantic-ui-react'
+import { Container, Dropdown, Icon, Menu } from 'semantic-ui-react'
 import SidebarMenu from '../Sidebar/SidebarMenu'
+import MenuItem from '../Menu/MenuItem'
 import './header.css'
 
 export default class Header extends Component {
@@ -27,10 +28,20 @@ export default class Header extends Component {
             <SidebarMenu />
           </Menu.Menu>
           <Menu.Menu position="right">
-            <div className="header-right">
-              <Icon name="user" />
-              <span className="user-name">Sys-Man</span>
-            </div>
+            <Dropdown icon="user" className="menu-parent">
+              <Dropdown.Menu className="menu-item">
+                <MenuItem
+                  link="/profile"
+                  title="Profile"
+                  nameIcon="user secret"
+                />
+                <MenuItem
+                  link="/edit-profile"
+                  title="Edit Profile"
+                  nameIcon="user secret"
+                />
+              </Dropdown.Menu>
+            </Dropdown>
           </Menu.Menu>
         </Container>
       </Menu>

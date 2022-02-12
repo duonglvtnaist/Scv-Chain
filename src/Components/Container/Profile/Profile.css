@@ -1,0 +1,77 @@
+.profileShowTitle {
+    display: flex;
+    justify-content: space-around;
+}
+
+.profileContainer {
+    display: flex;
+    margin-top: 20px;
+}
+
+.profileShow {
+    flex: 1;
+    padding: 20px;
+    -webkit-box-shadow: 0px 0px 15px -10px #000000;
+    box-shadow: 0px 0px 15px -10px #000000;
+}
+
+.profileUpdate {
+    padding: 20px;
+}
+
+.showTitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(112, 108, 108);
+}
+
+.profileShowInfo {
+    margin: 20px 0;
+    color: #555;
+}
+
+.showInfoTitle {
+    margin-left: 10px;
+}
+
+.profileUpdateTitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(112, 108, 108);
+}
+
+.profileUpdateForm {
+    margin-top: 20px;
+}
+
+.profileUpdateItem {
+    display: flex;
+    flex-direction: column;
+}
+
+.profileUpdateItem > label {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.profileUpdateInput {
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid gray;
+    padding: 5px;
+}
+
+.button-update-profile {
+    width: 150px;
+    height: 30px;
+    font-weight: bold;
+    color: #fff !important;
+    background-color: #3e74be !important;
+}
+
+.button-update-profile:hover {
+    background-color: #2b3c53 !important;
+    border: none;
+    color: white;
+    cursor: pointer;
+}

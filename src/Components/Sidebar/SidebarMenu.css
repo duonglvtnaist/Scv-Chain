@@ -9,17 +9,17 @@
 .menu-parent {
     color: rgb(37, 32, 32);
     font-weight: bold;
-    font-size: 14px;
     align-items: center;
-    padding: 10px 50px;
+    padding: 10px 40px;
 }
 
 .menu-item {
-    background-color: rgb(241, 241, 241) !important;
+    background-color: rgb(255, 255, 255) !important;
     border: none !important;
+    position: relative;
+    left: 60% !important;
 }
 
 .menu-parent:hover {
     background-color: rgb(236, 236, 236);
-    border-radius: 10px;
 }
