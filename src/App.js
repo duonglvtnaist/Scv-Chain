@@ -12,7 +12,6 @@ import 'semantic-ui-css/semantic.min.css'
 import { SubstrateContextProvider, useSubstrateState } from './substrate-lib'
 import { DeveloperConsole } from './substrate-lib/components'
 import SystemManage from './Layout/index'
-import Header from './Components/Header/Header'
 
 function Main() {
   return (

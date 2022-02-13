@@ -1,8 +1,7 @@
 .sidebar {
     margin-bottom: 10px;
-    padding: 10px;
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
     margin: 0 !important;
 }
 
@@ -10,14 +9,14 @@
     color: rgb(37, 32, 32);
     font-weight: bold;
     align-items: center;
-    padding: 10px 40px;
+    padding: 10px;
 }
 
 .menu-item {
     background-color: rgb(255, 255, 255) !important;
     border: none !important;
-    position: relative;
-    left: 60% !important;
+    padding: 20px;
+    width: 100% !important;
 }
 
 .menu-parent:hover {

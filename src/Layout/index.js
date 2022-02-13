@@ -10,6 +10,9 @@ import AddCV from './../Components/Container/AddCV/AddCV'
 import CvRequest from './../Components/Container/Cv Request/CvRequest'
 import Profile from './../Components/Container/Profile/Profile'
 import EditProfile from './../Components/Container/Profile/EditProfile'
+import SystemManLayout from './SysMan/SystemManageLayout'
+import OrganizationLayout from './Organization/OrganizationLayout'
+import SysMan from './../Components/Container/ApproveOrRevokeSysMan/SysMan'
 
 export default class SystemManage extends Component {
   render() {
@@ -17,6 +20,20 @@ export default class SystemManage extends Component {
       <Router>
         <Header />
         <Routes>
+          {/* Router sys-man */}
+          <Route path="/system-manage" element={<SystemManLayout />}></Route>
+          <Route
+            path="/system-manage/approve-or-revoke-sysman"
+            element={<SysMan />}
+          />
+          <Route
+            path="/system-manage/approve-or-revoke-org"
+            element={<Organization />}
+          />
+          {/* Router ORG */}
+          <Route path="/org" element={<OrganizationLayout />}></Route>
+          <Route path="/org/add-cv" element={<AddCV />} />
+
           <Route path="/org/add-cv" element={<AddCV />}></Route>
           <Route
             path="/org/add-certificate"
@@ -24,14 +41,15 @@ export default class SystemManage extends Component {
           ></Route>
           <Route path="/org/revoke-cv" element={<RevokeCV />}></Route>
           <Route path="/org/view-cv" element={<ViewCV />}></Route>
-          <Route path="/org/cv-request" element={<CvRequest />}></Route>
-
+          <Route path="/org/request-cv" element={<CvRequest />}></Route>
+          {/* Router User */}
           <Route path="/user/add-cv" element={<AddCV />}></Route>
+          <Route path="/user" element={<AddCV />}></Route>
           <Route
             path="/user/add-certificate"
             element={<AddCertificate />}
           ></Route>
-
+          {/* Router Profile */}
           <Route path="/profile" element={<Profile />}></Route>
           <Route path="/edit-profile" element={<EditProfile />}></Route>
 

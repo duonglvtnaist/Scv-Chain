@@ -6,14 +6,10 @@ import './menuItem.css'
 export default function MenuItem(props) {
   return (
     <Link to={props.link} className="link">
-      {/* <li className="sidebarListItem">
-        <Icon name={props.nameIcon} size="large" />
-        <span className="titleItem">{props.title}</span>
-      </li> */}
       <Dropdown.Item
         className="sidebarListItem"
         text={props.title}
-        icon={props.nameIcon}
+        icon={props.icon}
         size="large"
       ></Dropdown.Item>
     </Link>
