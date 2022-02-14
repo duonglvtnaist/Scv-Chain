@@ -13,6 +13,9 @@ import EditProfile from './../Components/Container/Profile/EditProfile'
 import SystemManLayout from './SysMan/SystemManageLayout'
 import OrganizationLayout from './Organization/OrganizationLayout'
 import SysMan from './../Components/Container/ApproveOrRevokeSysMan/SysMan'
+import { SidebarORG } from '../Components/Data/Data'
+import { SidebarUser } from './../Components/Data/Data'
+import UserLayout from './User/UserLayout'
 
 export default class SystemManage extends Component {
   render() {
@@ -32,35 +35,28 @@ export default class SystemManage extends Component {
           />
           {/* Router ORG */}
           <Route path="/org" element={<OrganizationLayout />}></Route>
-          <Route path="/org/add-cv" element={<AddCV />} />
+          <Route path="/org/add-cv" element={<AddCV MenuName={SidebarORG} />} />
 
-          <Route path="/org/add-cv" element={<AddCV />}></Route>
           <Route
             path="/org/add-certificate"
-            element={<AddCertificate />}
+            element={<AddCertificate MenuName={SidebarORG} />}
           ></Route>
           <Route path="/org/revoke-cv" element={<RevokeCV />}></Route>
           <Route path="/org/view-cv" element={<ViewCV />}></Route>
           <Route path="/org/request-cv" element={<CvRequest />}></Route>
           {/* Router User */}
-          <Route path="/user/add-cv" element={<AddCV />}></Route>
-          <Route path="/user" element={<AddCV />}></Route>
+          <Route path="/user" element={<UserLayout />}></Route>
+          <Route
+            path="/user/add-cv"
+            element={<AddCV MenuName={SidebarUser} />}
+          ></Route>
           <Route
             path="/user/add-certificate"
-            element={<AddCertificate />}
+            element={<AddCertificate MenuName={SidebarUser} />}
           ></Route>
           {/* Router Profile */}
           <Route path="/profile" element={<Profile />}></Route>
           <Route path="/edit-profile" element={<EditProfile />}></Route>
-
-          <Route
-            path="/sys-man/approve-or-revoke-sys-man"
-            element={<ApproveSysMan />}
-          ></Route>
-          <Route
-            path="/sys-man/approve-or-revoke-org"
-            element={<Organization />}
-          ></Route>
         </Routes>
       </Router>
     )

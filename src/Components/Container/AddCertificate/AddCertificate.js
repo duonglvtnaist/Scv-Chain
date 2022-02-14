@@ -16,13 +16,13 @@ import './addCertificate.css'
 import SidebarMenu from '../../Sidebar/SidebarMenu'
 import { SidebarORG } from '../../Data/Data'
 
-export default function AddCertificate() {
+export default function AddCertificate(props) {
   return (
     <Container style={{ marginTop: '20px' }}>
       <Grid>
         <Grid.Column width={4}>
           <Menu fluid vertical tabular>
-            {SidebarORG.map(MenuOrg => (
+            {props.MenuName.map(MenuOrg => (
               <SidebarMenu
                 link={MenuOrg.link}
                 icon={MenuOrg.icon}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Grid,
   Segment,
@@ -16,18 +16,18 @@ import './addCV.css'
 import SidebarMenu from '../../Sidebar/SidebarMenu'
 import { SidebarORG } from '../../Data/Data'
 
-export default function AddCV() {
+export default function AddCV(props) {
   return (
     <Container style={{ marginTop: '20px' }}>
       <Grid>
         <Grid.Column width={4}>
           <Menu fluid vertical tabular>
-            {SidebarORG.map(MenuOrg => (
+            {props.MenuName.map(Menu => (
               <SidebarMenu
-                link={MenuOrg.link}
-                icon={MenuOrg.icon}
-                title={MenuOrg.title}
-                key={MenuOrg.id}
+                link={Menu.link}
+                icon={Menu.icon}
+                title={Menu.title}
+                key={Menu.id}
               />
             ))}
           </Menu>
