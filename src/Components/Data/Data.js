@@ -61,6 +61,12 @@ export const SidebarUser = [
     title: 'Add Certificate',
     icon: 'user secret',
   },
+  {
+    id: 3,
+    link: '/user/request-see-cv',
+    title: 'Request See SV',
+    icon: 'user secret',
+  },
 ]
 
 export const SidebarAccountType = [

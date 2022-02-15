@@ -10,22 +10,20 @@ import {
   Form,
   TextArea,
 } from 'semantic-ui-react'
-import './cvRequest.css'
-import { SidebarORG } from '../../Data/Data'
 import SidebarMenu from '../../Sidebar/SidebarMenu'
 
-export default function CvRequest() {
+export default function AllowRequestCV(props) {
   return (
     <Container style={{ marginTop: '20px' }}>
       <Grid>
         <Grid.Column width={4}>
           <Menu fluid vertical tabular>
-            {SidebarORG.map(MenuOrg => (
+            {props.MenuName.map(Menu => (
               <SidebarMenu
-                link={MenuOrg.link}
-                icon={MenuOrg.icon}
-                title={MenuOrg.title}
-                key={MenuOrg.id}
+                link={Menu.link}
+                icon={Menu.icon}
+                title={Menu.title}
+                key={Menu.id}
               />
             ))}
           </Menu>
@@ -35,11 +33,11 @@ export default function CvRequest() {
             <Segment.Group>
               <Segment raised style={{ backgroundColor: 'rgb(252, 252, 252)' }}>
                 <Label color="blue" ribbon className="show-title">
-                  REQUEST CV
+                  REQUEST SEE CV
                 </Label>
               </Segment>
               <div style={{ padding: '20px' }}>
-                <div className="request-cv">
+                <div style={{ paddingBottom: '20px' }}>
                   <Input
                     label={{ basic: true, content: 'ID' }}
                     labelPosition="left"
@@ -51,7 +49,13 @@ export default function CvRequest() {
                   </Form>
                 </div>
                 <div className="button-submit">
-                  <Button className="button-request-cv">Request</Button>
+                  <Button.Group>
+                    <Button>Disallowance</Button>
+                    <Button.Or />
+                    <Button positive className="button-approve">
+                      Allow
+                    </Button>
+                  </Button.Group>
                 </div>
               </div>
             </Segment.Group>

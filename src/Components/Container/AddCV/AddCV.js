@@ -14,7 +14,7 @@ import {
 } from 'semantic-ui-react'
 import './addCV.css'
 import SidebarMenu from '../../Sidebar/SidebarMenu'
-import { SidebarORG } from '../../Data/Data'
+
 
 export default function AddCV(props) {
   return (

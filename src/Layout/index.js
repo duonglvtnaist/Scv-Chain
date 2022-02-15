@@ -16,6 +16,7 @@ import SysMan from './../Components/Container/ApproveOrRevokeSysMan/SysMan'
 import { SidebarORG } from '../Components/Data/Data'
 import { SidebarUser } from './../Components/Data/Data'
 import UserLayout from './User/UserLayout'
+import AllowRequestCV from './../Components/Container/CV Request Allow/AllowRequestCV'
 
 export default class SystemManage extends Component {
   render() {
@@ -53,6 +54,10 @@ export default class SystemManage extends Component {
           <Route
             path="/user/add-certificate"
             element={<AddCertificate MenuName={SidebarUser} />}
+          ></Route>
+          <Route
+            path="/user/request-see-cv"
+            element={<AllowRequestCV MenuName={SidebarUser} />}
           ></Route>
           {/* Router Profile */}
           <Route path="/profile" element={<Profile />}></Route>
