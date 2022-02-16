@@ -17,6 +17,8 @@ import { SidebarORG } from '../Components/Data/Data'
 import { SidebarUser } from './../Components/Data/Data'
 import UserLayout from './User/UserLayout'
 import AllowRequestCV from './../Components/Container/CV Request Allow/AllowRequestCV'
+import HomePage from './HomePage/HomePage'
+import ViewCertificate from './../Components/Container/ViewCertificate/ViewCertificate'
 
 export default class SystemManage extends Component {
   render() {
@@ -24,6 +26,7 @@ export default class SystemManage extends Component {
       <Router>
         <Header />
         <Routes>
+          <Route path="/home-page" element={<HomePage />}></Route>
           {/* Router sys-man */}
           <Route path="/system-manage" element={<SystemManLayout />}></Route>
           <Route
@@ -45,6 +48,11 @@ export default class SystemManage extends Component {
           <Route path="/org/revoke-cv" element={<RevokeCV />}></Route>
           <Route path="/org/view-cv" element={<ViewCV />}></Route>
           <Route path="/org/request-cv" element={<CvRequest />}></Route>
+          <Route
+            path="/org/view-certificate"
+            element={<ViewCertificate MenuName={SidebarORG} />}
+          ></Route>
+
           {/* Router User */}
           <Route path="/user" element={<UserLayout />}></Route>
           <Route
@@ -59,6 +67,11 @@ export default class SystemManage extends Component {
             path="/user/request-see-cv"
             element={<AllowRequestCV MenuName={SidebarUser} />}
           ></Route>
+          <Route
+            path="/user/view-certificate"
+            element={<ViewCertificate MenuName={SidebarUser} />}
+          ></Route>
+
           {/* Router Profile */}
           <Route path="/profile" element={<Profile />}></Route>
           <Route path="/edit-profile" element={<EditProfile />}></Route>
