@@ -46,6 +46,12 @@ export const SidebarORG = [
     title: 'Request CV',
     icon: 'user secret',
   },
+  {
+    id: 6,
+    link: '/org/view-certificate',
+    title: 'view-certificate',
+    icon: 'user secret',
+  },
 ]
 
 export const SidebarUser = [

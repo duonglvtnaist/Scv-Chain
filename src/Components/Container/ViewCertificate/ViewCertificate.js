@@ -11,7 +11,7 @@ import {
   Label,
   Form,
 } from 'semantic-ui-react'
-import './viewCV.css'
+import './viewCertificate.css'
 import SidebarMenu from '../../Sidebar/SidebarMenu'
 import { SidebarORG } from '../../Data/Data'
 import { useSubstrateState } from '../../../substrate-lib'
@@ -20,30 +20,21 @@ import { decorateStorage } from '@polkadot/types'
 import AccountMain from '../AddCV/AccountMain'
 
 const argIsOptional = arg => arg.type.toString().startsWith('Option<')
-export default function ViewCV() {
+export default function ViewCertificate() {
   const { api, jsonrpc } = useSubstrateState()
   const [status, setStatus] = useState(null)
-  const [choosing, setChoosing] = useState('itemById')
+  // const [choosing, setChoosing] = useState('itemById')
   const [interxType, setInterxType] = useState('QUERY')
   const [palletRPCs, setPalletRPCs] = useState([])
   const [callables, setCallables] = useState([])
   const [paramFields, setParamFields] = useState([])
-  const [infor, setInfor] = useState('')
+  // const [infor, setInfor] = useState('')
   const initFormState = {
-    palletRpc: 'cv',
-    callable: 'itemById',
+    palletRpc: 'certificate',
+    callable: 'certificateById',
     inputParams: [],
   }
-  const itemByIdState = {
-    palletRpc: 'cv',
-    callable: 'itemById',
-    inputParams: [],
-  }
-  const itemsByAccountIdState = {
-    palletRpc: 'cv',
-    callable: 'itemsByAccountId',
-    inputParams: [],
-  }
+
   const [formState, setFormState] = useState(initFormState)
   const { palletRpc, callable, inputParams } = formState
 
@@ -60,7 +51,7 @@ export default function ViewCV() {
   }
   const labelNames = [
   {
-    value: 'CV ID'
+    value: 'Cerfiticate ID'
   },
 ]
   const updatePalletRPCs = () => {
@@ -177,18 +168,9 @@ export default function ViewCV() {
   }
 
   const onInterxTypeChange = (ev, data) => {
-    setChoosing(data.value)
+    setInterxType(data.value)
     // clear the formState
-    if(data.value === 'itemById'){
-      setInfor('Choose first')
-      setFormState(itemByIdState)
-    } else if (data.value === 'itemsByAccountId'){
-      setInfor('Choose second')
-      setFormState(itemsByAccountIdState)
-      
-    }
-    updatePalletRPCs()
-    updateCallables()
+    setFormState(initFormState)
     
   }
 
@@ -216,22 +198,22 @@ export default function ViewCV() {
             <Segment.Group>
               <Segment raised style={{ backgroundColor: 'rgb(252, 252, 252)' }}>
                 <Label color="blue" ribbon>
-                  VIEW CV
+                  VIEW CERTIFICATE
                 </Label>
               </Segment>
-              <div className="view-cv">
+              <div className="view-certificate">
                 <AccountMain />
                 {/* <Input
-                  label={{ basic: true, content: 'CV EnKey' }}
+                  label={{ basic: true, content: 'Certificate EnKey' }}
                   labelPosition="left"
-                  placeholder="CV EnKey ..."
+                  placeholder="Certificate EnKey ..."
                   className="input-id"
                   value={JSON.stringify(formState) + " - " + choosing + " - " + infor}
                 ></Input>
                 <div className="button-submit">
-                  <Button className="button-view-cv">View</Button>
+                  <Button className="button-view-certificate">View</Button>
                 </div> */}
-                <Form>
+                {/* <Form>
                   <Form.Group style={{ overflowX: 'auto' }} inline>
                   <label>Interaction Type</label>
                   <Form.Radio
@@ -249,7 +231,7 @@ export default function ViewCV() {
                     onChange={onInterxTypeChange}
                   />
                 </Form.Group>
-                </Form>
+                </Form> */}
                 <Form>
                     {paramFields.map((paramField, ind) => (
                       <Form.Field key={`${paramField.name}-${paramField.type}`}>
@@ -258,7 +240,7 @@ export default function ViewCV() {
                           fluid
                           type="text"
                           label={labelNames[ind].value}
-                          className="input-cv"
+                          className="input-certificate"
                           state={{ ind, paramField }}
                           value={inputParams[ind] ? inputParams[ind].value : ''}
                           onChange={onPalletCallableParamChange}
@@ -293,10 +275,10 @@ export default function ViewCV() {
             <Segment.Group>
               <Segment raised style={{ backgroundColor: 'rgb(252, 252, 252)' }}>
                 <Label color="blue" ribbon className="show-title">
-                  CV INFORMATION
+                  CERTIFICATE INFORMATION
                 </Label>
               </Segment>
-              <div className="show-cv">
+              <div className="show-certificate">
                 {/* <div className="cv-info">
                   <label>CID: </label>
                   <span className="show-content">0</span>
@@ -324,9 +306,10 @@ export default function ViewCV() {
                   <label>ExpDate: </label>
                   <span className="show-content">31/12/2022</span>
                 </div> */}
-                <div className="cv-info">
+                <div className="certificate-info" >
                   <label>Result: </label>
                   <span className="show-content">{status}</span>
+              
                 </div>
                 {/* <div style={{ overflowWrap: 'break-word' }}>{status}</div> */}
   

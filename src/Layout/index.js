@@ -17,6 +17,7 @@ import { SidebarORG } from '../Components/Data/Data'
 import { SidebarUser } from './../Components/Data/Data'
 import UserLayout from './User/UserLayout'
 import AllowRequestCV from './../Components/Container/CV Request Allow/AllowRequestCV'
+import ViewCertificate from '../Components/Container/ViewCertificate/ViewCertificate'
 
 export default class SystemManage extends Component {
   render() {
@@ -45,6 +46,7 @@ export default class SystemManage extends Component {
           <Route path="/org/revoke-cv" element={<RevokeCV />}></Route>
           <Route path="/org/view-cv" element={<ViewCV />}></Route>
           <Route path="/org/request-cv" element={<CvRequest />}></Route>
+          <Route path="/org/view-certificate" element={<ViewCertificate />}></Route>
           {/* Router User */}
           <Route path="/user" element={<UserLayout />}></Route>
           <Route
