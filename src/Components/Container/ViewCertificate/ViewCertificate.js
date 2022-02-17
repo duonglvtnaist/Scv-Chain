@@ -178,6 +178,7 @@ export default function ViewCertificate() {
     interxType === 'RPC'
       ? 'Optional Parameter'
       : 'Leaving this field as blank will submit a NONE value'
+
   return (
     <Container style={{ marginTop: '20px' }}>
       <Grid>
@@ -322,6 +323,7 @@ export default function ViewCertificate() {
     </Container>
   )
 }
+
 function InteractorSubmit(props) {
   const {
     attrs: { interxType },
@@ -334,3 +336,4 @@ function InteractorSubmit(props) {
     return <TxButton label="Submit" type={interxType} color="blue" {...props} />
   }
 }
+

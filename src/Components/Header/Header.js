@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import { Container, Dropdown, Icon, Menu } from 'semantic-ui-react'
+import { Container, Dropdown, Icon, Image, Menu } from 'semantic-ui-react'
 import SidebarMenu from '../Sidebar/SidebarMenu'
 import MenuItem from '../Menu/MenuItem'
 import './header.css'
 import SysMan from './../Container/ApproveOrRevokeSysMan/SysMan'
 import Organization from './../Container/ApproveOrRevokeOrganization/Organization'
 import { SidebarAccountType } from '../Data/Data'
-
+import { Link } from 'react-router-dom'
 export default class Header extends Component {
   render() {
     return (
@@ -23,13 +23,10 @@ export default class Header extends Component {
       >
         <Container>
           <Menu.Menu>
-            <div className="header-left">
-              <div className="logo">Scv - Chain</div>
-            </div>
+            <Link to="/home-page" className="link">
+              <Menu.Item icon="th" className="logo"></Menu.Item>
+            </Link>
           </Menu.Menu>
-          {/* <Menu.Menu position="right">
-            <SidebarMenu />
-          </Menu.Menu> */}
           <Menu.Menu position="right">
             <Dropdown icon="user" className="menu-parent">
               <Dropdown.Menu className="menu-item">
