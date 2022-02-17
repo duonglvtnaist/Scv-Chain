@@ -1,0 +1,30 @@
+.view-certificate {
+    padding: 20px;
+}
+
+.button-view {
+}
+
+.button-view-certificate {
+    background-color: #3e74be !important;
+    color: white !important;
+}
+.show-certificate {
+    flex: 1;
+    padding: 20px;
+}
+
+.show-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(112, 108, 108);
+}
+
+.certificate-info {
+    margin: 20px 0;
+    color: #555;
+}
+
+.show-content {
+    margin-left: 10px;
+}

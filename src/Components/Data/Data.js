@@ -49,7 +49,7 @@ export const SidebarORG = [
   {
     id: 6,
     link: '/org/view-certificate',
-    title: 'View Certificate',
+    title: 'view-certificate',
     icon: 'user secret',
   },
 ]
