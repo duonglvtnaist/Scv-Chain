@@ -62,60 +62,57 @@ function Main(props) {
     //     paddingBottom: '1em',
     //   }}
     // >
-      <Container>
-        {/* <Menu.Menu style={{ alignItems: 'center' } }> */}
-          {!currentAccount ? (
-            <span>
-              Create an account with Polkadot-JS Extension (
-              <a target="_blank" rel="noreferrer" href={CHROME_EXT_URL}>
-                Chrome
-              </a>
-              ,&nbsp;
-              <a target="_blank" rel="noreferrer" href={FIREFOX_ADDON_URL}>
-                Firefox
-              </a>
-              )&nbsp;
-            </span>
-          ) : null}
+    <Container>
+      {/* <Menu.Menu style={{ alignItems: 'center' } }> */}
+      {!currentAccount ? (
+        <span>
+          Create an account with Polkadot-JS Extension (
+          <a target="_blank" rel="noreferrer" href={CHROME_EXT_URL}>
+            Chrome
+          </a>
+          ,&nbsp;
+          <a target="_blank" rel="noreferrer" href={FIREFOX_ADDON_URL}>
+            Firefox
+          </a>
+          )&nbsp;
+        </span>
+      ) : null}
 
-          <Grid>
-            <Grid.Column computer={3} tablet={16}>
-              <Label  className="input-cv">Account ID</Label>
-            </Grid.Column>
-            <Grid.Column computer={2}>
-              <CopyToClipboard text={acctAddr(currentAccount)}>
-                <Button
-                  basic
-                  circular
-                  size="large"
-                  icon="user"
-                  label="Copy"
-                  color={currentAccount ? 'green' : 'red'}
-                />
-              </CopyToClipboard>
-            </Grid.Column>
-            <Grid.Column computer={11}>
-              <Dropdown
-              search
-              fluid
-              selection
-              clearable
-              placeholder="Select an account"
-              options={keyringOptions}
-              onChange={(_, dropdown) => {
-                onChange(dropdown.value)
-              }}
-              value={acctAddr(currentAccount)}
-              />
-            </Grid.Column>
+      <Grid>
+        <Grid.Column computer={3} tablet={16}>
+          <Label className="input-cv">Account ID</Label>
+        </Grid.Column>
+        <Grid.Column computer={2} style={{ padding: '14px 0px' }}>
+          <CopyToClipboard text={acctAddr(currentAccount)}>
+            <Button
+              basic
+              circular
+              size="large"
+              icon="user"
+              label="Copy"
+              color={currentAccount ? 'green' : 'red'}
+            />
+          </CopyToClipboard>
+        </Grid.Column>
+        <Grid.Column computer={11} style={{ marginBottom: '10px' }}>
+          <Dropdown
+            search
+            fluid
+            selection
+            clearable
+            placeholder="Select an account"
+            options={keyringOptions}
+            onChange={(_, dropdown) => {
+              onChange(dropdown.value)
+            }}
+            value={acctAddr(currentAccount)}
+          />
+        </Grid.Column>
+      </Grid>
 
-          </Grid>
-          
-   
-        
-          {/* <BalanceAnnotation /> */}
-        {/* </Menu.Menu> */}
-      </Container>
+      {/* <BalanceAnnotation /> */}
+      {/* </Menu.Menu> */}
+    </Container>
     // </Menu>
   )
 }

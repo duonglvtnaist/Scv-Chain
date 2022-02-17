@@ -59,10 +59,10 @@ export default function ViewCV() {
     }
   }
   const labelNames = [
-  {
-    value: 'CV ID'
-  },
-]
+    {
+      value: 'CV ID',
+    },
+  ]
   const updatePalletRPCs = () => {
     if (!api) {
       return
@@ -179,17 +179,15 @@ export default function ViewCV() {
   const onInterxTypeChange = (ev, data) => {
     setChoosing(data.value)
     // clear the formState
-    if(data.value === 'itemById'){
+    if (data.value === 'itemById') {
       setInfor('Choose first')
       setFormState(itemByIdState)
-    } else if (data.value === 'itemsByAccountId'){
+    } else if (data.value === 'itemsByAccountId') {
       setInfor('Choose second')
       setFormState(itemsByAccountIdState)
-      
     }
     updatePalletRPCs()
     updateCallables()
-    
   }
 
   const getOptionalMsg = interxType =>
@@ -231,61 +229,61 @@ export default function ViewCV() {
                 <div className="button-submit">
                   <Button className="button-view-cv">View</Button>
                 </div> */}
-                <Form>
+                <Form style={{ marginTop: '10px' }}>
                   <Form.Group style={{ overflowX: 'auto' }} inline>
-                  <label>Interaction Type</label>
-                  <Form.Radio
-                    label="View by ID"
-                    name="choosing"
-                    value="itemById"
-                    checked={choosing === 'itemById'}
-                    onChange={onInterxTypeChange}
-                  />
-                  <Form.Radio
-                    label="View by Account"
-                    name="choosing"
-                    value="itemsByAccountId"
-                    checked={choosing === 'itemsByAccountId'}
-                    onChange={onInterxTypeChange}
-                  />
-                </Form.Group>
+                    <label>Interaction Type</label>
+                    <Form.Radio
+                      label="View by ID"
+                      name="choosing"
+                      value="itemById"
+                      checked={choosing === 'itemById'}
+                      onChange={onInterxTypeChange}
+                    />
+                    <Form.Radio
+                      label="View by Account"
+                      name="choosing"
+                      value="itemsByAccountId"
+                      checked={choosing === 'itemsByAccountId'}
+                      onChange={onInterxTypeChange}
+                    />
+                  </Form.Group>
                 </Form>
                 <Form>
-                    {paramFields.map((paramField, ind) => (
-                      <Form.Field key={`${paramField.name}-${paramField.type}`}>
-                        <Input
-                          placeholder={paramField.type}
-                          fluid
-                          type="text"
-                          label={labelNames[ind].value}
-                          className="input-cv"
-                          state={{ ind, paramField }}
-                          value={inputParams[ind] ? inputParams[ind].value : ''}
-                          onChange={onPalletCallableParamChange}
+                  {paramFields.map((paramField, ind) => (
+                    <Form.Field key={`${paramField.name}-${paramField.type}`}>
+                      <Input
+                        placeholder={paramField.type}
+                        fluid
+                        type="text"
+                        label={labelNames[ind].value}
+                        className="input-cv"
+                        state={{ ind, paramField }}
+                        value={inputParams[ind] ? inputParams[ind].value : ''}
+                        onChange={onPalletCallableParamChange}
+                      />
+                      {paramField.optional ? (
+                        <Label
+                          basic
+                          pointing
+                          color="teal"
+                          content={getOptionalMsg(interxType)}
                         />
-                        {paramField.optional ? (
-                          <Label
-                            basic
-                            pointing
-                            color="teal"
-                            content={getOptionalMsg(interxType)}
-                          />
-                        ) : null}
-                      </Form.Field>
-                    ))}
+                      ) : null}
+                    </Form.Field>
+                  ))}
                 </Form>
                 <Form>
                   <Form.Field style={{ textAlign: 'center' }}>
-                      <InteractorSubmit
-                        setStatus={setStatus}
-                        attrs={{
-                          interxType,
-                          palletRpc,
-                          callable,
-                          inputParams,
-                          paramFields,
-                        }}
-                      />
+                    <InteractorSubmit
+                      setStatus={setStatus}
+                      attrs={{
+                        interxType,
+                        palletRpc,
+                        callable,
+                        inputParams,
+                        paramFields,
+                      }}
+                    />
                   </Form.Field>
                 </Form>
               </div>
@@ -329,8 +327,6 @@ export default function ViewCV() {
                   <span className="show-content">{status}</span>
                 </div>
                 {/* <div style={{ overflowWrap: 'break-word' }}>{status}</div> */}
-  
-                  
               </div>
             </Segment.Group>
           </Container>

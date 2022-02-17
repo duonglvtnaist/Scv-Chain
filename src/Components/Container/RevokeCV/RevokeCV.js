@@ -1,4 +1,4 @@
-import React, { useState,  useEffect, createRef  } from 'react'
+import React, { useState, useEffect, createRef } from 'react'
 import {
   Container,
   Grid,
@@ -17,9 +17,7 @@ import AccountMain from '../AddCV/AccountMain'
 import { useSubstrateState } from '../../../substrate-lib'
 import { TxButton, TxGroupButton } from '../../../substrate-lib/components'
 const argIsOptional = arg => arg.type.toString().startsWith('Option<')
-export default function RevokeCV() {
-
-
+export default function RevokeCV(props) {
   const { api, jsonrpc } = useSubstrateState()
   const [status, setStatus] = useState(null)
 
@@ -49,10 +47,10 @@ export default function RevokeCV() {
     }
   }
   const labelNames = [
-  {
-    value: 'CV ID'
-  },
-]
+    {
+      value: 'CV ID',
+    },
+  ]
   const updatePalletRPCs = () => {
     if (!api) {
       return
@@ -182,12 +180,12 @@ export default function RevokeCV() {
       <Grid>
         <Grid.Column width={4}>
           <Menu fluid vertical tabular>
-            {SidebarORG.map(MenuOrg => (
+            {props.MenuName.map(Menu => (
               <SidebarMenu
-                link={MenuOrg.link}
-                icon={MenuOrg.icon}
-                title={MenuOrg.title}
-                key={MenuOrg.id}
+                link={Menu.link}
+                icon={Menu.icon}
+                title={Menu.title}
+                key={Menu.id}
               />
             ))}
           </Menu>
@@ -200,8 +198,9 @@ export default function RevokeCV() {
                   REVOKE CV
                 </Label>
               </Segment>
-              <AccountMain />
+
               <div className="revokeCV">
+                <AccountMain />
                 {/* <Input
                   label={{ basic: true, content: 'CV ID' }}
                   labelPosition="left"
@@ -215,47 +214,46 @@ export default function RevokeCV() {
                   placeholder="Enter CID ..."
                   className="input-cid"
                 /> */}
-                <Form>
-                    {paramFields.map((paramField, ind) => (
-                      <Form.Field key={`${paramField.name}-${paramField.type}`}>
-                        <Input
-                          placeholder={paramField.type}
-                          fluid
-                          type="text"
-                          label={labelNames[ind].value}
-                          className="input-cv"
-                          state={{ ind, paramField }}
-                          value={inputParams[ind] ? inputParams[ind].value : ''}
-                          onChange={onPalletCallableParamChange}
+                <Form style={{ marginTop: '10px' }}>
+                  {paramFields.map((paramField, ind) => (
+                    <Form.Field key={`${paramField.name}-${paramField.type}`}>
+                      <Input
+                        placeholder={paramField.type}
+                        fluid
+                        type="text"
+                        label={labelNames[ind].value}
+                        className="input-cv"
+                        state={{ ind, paramField }}
+                        value={inputParams[ind] ? inputParams[ind].value : ''}
+                        onChange={onPalletCallableParamChange}
+                      />
+                      {paramField.optional ? (
+                        <Label
+                          basic
+                          pointing
+                          color="teal"
+                          content={getOptionalMsg(interxType)}
                         />
-                        {paramField.optional ? (
-                          <Label
-                            basic
-                            pointing
-                            color="teal"
-                            content={getOptionalMsg(interxType)}
-                          />
-                        ) : null}
-                      </Form.Field>
-                    ))}
+                      ) : null}
+                    </Form.Field>
+                  ))}
                 </Form>
                 <Form>
-                    <Form.Field style={{ textAlign: 'center' }}>
-                        <InteractorSubmit
-                          setStatus={setStatus}
-                          attrs={{
-                            interxType,
-                            palletRpc,
-                            callable,
-                            inputParams,
-                            paramFields,
-                          }}
-                        />
-                    </Form.Field>
-                  </Form>
-                  <div style={{ overflowWrap: 'break-word' }}>{status}</div>
+                  <Form.Field style={{ textAlign: 'center' }}>
+                    <InteractorSubmit
+                      setStatus={setStatus}
+                      attrs={{
+                        interxType,
+                        palletRpc,
+                        callable,
+                        inputParams,
+                        paramFields,
+                      }}
+                    />
+                  </Form.Field>
+                </Form>
+                <div style={{ overflowWrap: 'break-word' }}>{status}</div>
               </div>
-
 
               {/* <div className="button-submit">
                 <Button className="button-revoke-cv">REVOKE</Button>

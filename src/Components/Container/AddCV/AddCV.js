@@ -1,4 +1,4 @@
-import React, { useState,  useEffect, createRef  } from 'react'
+import React, { useState, useEffect, createRef } from 'react'
 import {
   Grid,
   Segment,
@@ -15,7 +15,6 @@ import {
   Dimmer,
   Loader,
   Message,
-
 } from 'semantic-ui-react'
 import './addCV.css'
 import SidebarMenu from '../../Sidebar/SidebarMenu'
@@ -30,10 +29,6 @@ import AccountMain from './AccountMain'
 const argIsOptional = arg => arg.type.toString().startsWith('Option<')
 
 export default function AddCV(props) {
-
-
-
-
   const { api, jsonrpc } = useSubstrateState()
   const [status, setStatus] = useState(null)
 
@@ -63,22 +58,22 @@ export default function AddCV(props) {
     }
   }
   const labelNames = [
-  {
-    value: 'Account ID'
-  },
-  {
-    value: 'Metadata'
-  },
-  {
-    value: 'Original Date'
-  },
-  {
-    value: 'Expired Date'
-  },
-  {
-    value: 'Certificate ID'
-  },
-]
+    {
+      value: 'Account ID',
+    },
+    {
+      value: 'Metadata',
+    },
+    {
+      value: 'Original Date',
+    },
+    {
+      value: 'Expired Date',
+    },
+    {
+      value: 'Certificate ID',
+    },
+  ]
   const updatePalletRPCs = () => {
     if (!api) {
       return
@@ -236,64 +231,68 @@ export default function AddCV(props) {
                 ></Input> */}
                 <AccountMain />
 
-                  <Form>
-                    {paramFields.map((paramField, ind) => (
-                      <Form.Field key={`${paramField.name}-${paramField.type}`}>
-                        <Input
-                          placeholder={paramField.type}
-                          fluid
-                          type="text"
-                          label={labelNames[ind].value}
-                          className="input-cv"
-                          state={{ ind, paramField }}
-                          value={inputParams[ind] ? inputParams[ind].value : ''}
-                          onChange={onPalletCallableParamChange}
+                <Form style={{ marginTop: '10px' }}>
+                  {paramFields.map((paramField, ind) => (
+                    <Form.Field key={`${paramField.name}-${paramField.type}`}>
+                      <Input
+                        placeholder={paramField.type}
+                        fluid
+                        type="text"
+                        label={labelNames[ind].value}
+                        state={{ ind, paramField }}
+                        value={inputParams[ind] ? inputParams[ind].value : ''}
+                        onChange={onPalletCallableParamChange}
+                      />
+                      {paramField.optional ? (
+                        <Label
+                          basic
+                          pointing
+                          color="teal"
+                          content={getOptionalMsg(interxType)}
                         />
-                        {paramField.optional ? (
-                          <Label
-                            basic
-                            pointing
-                            color="teal"
-                            content={getOptionalMsg(interxType)}
-                          />
-                        ) : null}
-                      </Form.Field>
-                    ))}
-                  </Form>
-
-                  <Input
-                    label={{ basic: true, content: 'Type' }}
-                    labelPosition="left"
-                    placeholder="Type"
-                    className="input-cv"
-                  />
-                  <Input
-                    label={{ basic: true, content: 'KeyWork' }}
-                    labelPosition="left"
-                    placeholder="Ex: English, ReactJs, ..."
-                    className="input-cv"
-                  />
-
-                  <Form>
-                    <TextArea placeholder="Description ..." />
-                  </Form>
-
-                  <Form>
-                    <Form.Field style={{ textAlign: 'center' }}>
-                        <InteractorSubmit
-                          setStatus={setStatus}
-                          attrs={{
-                            interxType,
-                            palletRpc,
-                            callable,
-                            inputParams,
-                            paramFields,
-                          }}
-                        />
+                      ) : null}
                     </Form.Field>
-                  </Form>
-                  <div style={{ overflowWrap: 'break-word' }}>{status}</div>
-                </div>
+                  ))}
+                </Form>
+                <Form>
+                  <Form.Field style={{ margin: '0px' }}>
+                    <Input
+                      label={{ basic: true, content: 'Type' }}
+                      labelPosition="left"
+                      placeholder="Type"
+                      style={{ margin: '10px 10px 10px 0px' }}
+                    />
+                  </Form.Field>
+                  <Form.Field>
+                    <Input
+                      label={{ basic: true, content: 'KeyWork' }}
+                      labelPosition="left"
+                      placeholder="Ex: English, ReactJs, ..."
+                      style={{ margin: '0px 10px 10px 0px' }}
+                    />
+                  </Form.Field>
+                </Form>
+
+                <Form style={{ marginBottom: '10px' }}>
+                  <TextArea placeholder="Description ..." />
+                </Form>
+
+                <Form>
+                  <Form.Field style={{ textAlign: 'center' }}>
+                    <InteractorSubmit
+                      setStatus={setStatus}
+                      attrs={{
+                        interxType,
+                        palletRpc,
+                        callable,
+                        inputParams,
+                        paramFields,
+                      }}
+                    />
+                  </Form.Field>
+                </Form>
+                <div style={{ overflowWrap: 'break-word' }}>{status}</div>
+              </div>
             </Segment.Group>
           </Container>
         </Grid.Column>

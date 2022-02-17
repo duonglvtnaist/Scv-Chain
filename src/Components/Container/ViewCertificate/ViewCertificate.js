@@ -50,10 +50,10 @@ export default function ViewCertificate() {
     }
   }
   const labelNames = [
-  {
-    value: 'Cerfiticate ID'
-  },
-]
+    {
+      value: 'Cerfiticate ID',
+    },
+  ]
   const updatePalletRPCs = () => {
     if (!api) {
       return
@@ -171,14 +171,12 @@ export default function ViewCertificate() {
     setInterxType(data.value)
     // clear the formState
     setFormState(initFormState)
-    
   }
 
   const getOptionalMsg = interxType =>
     interxType === 'RPC'
       ? 'Optional Parameter'
       : 'Leaving this field as blank will submit a NONE value'
-
   return (
     <Container style={{ marginTop: '20px' }}>
       <Grid>
@@ -233,42 +231,42 @@ export default function ViewCertificate() {
                   />
                 </Form.Group>
                 </Form> */}
-                <Form>
-                    {paramFields.map((paramField, ind) => (
-                      <Form.Field key={`${paramField.name}-${paramField.type}`}>
-                        <Input
-                          placeholder={paramField.type}
-                          fluid
-                          type="text"
-                          label={labelNames[ind].value}
-                          className="input-certificate"
-                          state={{ ind, paramField }}
-                          value={inputParams[ind] ? inputParams[ind].value : ''}
-                          onChange={onPalletCallableParamChange}
+                <Form style={{ margin: '10px 0px' }}>
+                  {paramFields.map((paramField, ind) => (
+                    <Form.Field key={`${paramField.name}-${paramField.type}`}>
+                      <Input
+                        placeholder={paramField.type}
+                        fluid
+                        type="text"
+                        label={labelNames[ind].value}
+                        className="input-certificate"
+                        state={{ ind, paramField }}
+                        value={inputParams[ind] ? inputParams[ind].value : ''}
+                        onChange={onPalletCallableParamChange}
+                      />
+                      {paramField.optional ? (
+                        <Label
+                          basic
+                          pointing
+                          color="teal"
+                          content={getOptionalMsg(interxType)}
                         />
-                        {paramField.optional ? (
-                          <Label
-                            basic
-                            pointing
-                            color="teal"
-                            content={getOptionalMsg(interxType)}
-                          />
-                        ) : null}
-                      </Form.Field>
-                    ))}
+                      ) : null}
+                    </Form.Field>
+                  ))}
                 </Form>
                 <Form>
                   <Form.Field style={{ textAlign: 'center' }}>
-                      <InteractorSubmit
-                        setStatus={setStatus}
-                        attrs={{
-                          interxType,
-                          palletRpc,
-                          callable,
-                          inputParams,
-                          paramFields,
-                        }}
-                      />
+                    <InteractorSubmit
+                      setStatus={setStatus}
+                      attrs={{
+                        interxType,
+                        palletRpc,
+                        callable,
+                        inputParams,
+                        paramFields,
+                      }}
+                    />
                   </Form.Field>
                 </Form>
               </div>
@@ -307,14 +305,11 @@ export default function ViewCertificate() {
                   <label>ExpDate: </label>
                   <span className="show-content">31/12/2022</span>
                 </div> */}
-                <div className="certificate-info" >
+                <div className="certificate-info">
                   <label>Result: </label>
                   <span className="show-content">{status}</span>
-              
                 </div>
                 {/* <div style={{ overflowWrap: 'break-word' }}>{status}</div> */}
-  
-                  
               </div>
             </Segment.Group>
           </Container>
@@ -323,7 +318,6 @@ export default function ViewCertificate() {
     </Container>
   )
 }
-
 function InteractorSubmit(props) {
   const {
     attrs: { interxType },
@@ -336,4 +330,3 @@ function InteractorSubmit(props) {
     return <TxButton label="Submit" type={interxType} color="blue" {...props} />
   }
 }
-

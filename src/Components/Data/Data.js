@@ -3,14 +3,26 @@ import React from 'react'
 export const SidebarSysMan = [
   {
     id: 1,
-    link: '/system-manage/approve-or-revoke-sysman',
-    title: 'Approve or Revoke SysMan',
+    link: '/system-manage/approve-sysman',
+    title: 'Approve SysMan',
     icon: 'user secret',
   },
   {
     id: 2,
-    link: '/system-manage/approve-or-revoke-org',
-    title: 'Approve or Revoke ORG',
+    link: '/system-manage/revoke-sysman',
+    title: 'Revoke SysMan',
+    icon: 'user secret',
+  },
+  {
+    id: 3,
+    link: '/system-manage/approve-org',
+    title: 'Approve ORG',
+    icon: 'user secret',
+  },
+  {
+    id: 4,
+    link: '/system-manage/revoke-org',
+    title: 'Revoke ORG',
     icon: 'user secret',
   },
 ]
@@ -49,7 +61,13 @@ export const SidebarORG = [
   {
     id: 6,
     link: '/org/view-certificate',
-    title: 'view-certificate',
+    title: 'View Certificate',
+    icon: 'user secret',
+  },
+  {
+    id: 7,
+    link: '/org/revoke-certificate',
+    title: 'Revoke Certificate',
     icon: 'user secret',
   },
 ]
@@ -69,14 +87,14 @@ export const SidebarUser = [
   },
   {
     id: 3,
-    link: '/user/request-see-cv',
-    title: 'Request See SV',
+    link: '/user/revoke-certificate',
+    title: 'Revoke Certificate',
     icon: 'user secret',
   },
   {
     id: 4,
-    link: '/user/view-certificate',
-    title: 'View Certificate',
+    link: '/user/request-see-cv',
+    title: 'Request See SV',
     icon: 'user secret',
   },
 ]
