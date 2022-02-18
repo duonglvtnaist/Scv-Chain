@@ -10,6 +10,7 @@ import {
   Menu,
   Label,
   Form,
+  List,
 } from 'semantic-ui-react'
 import './viewCV.css'
 import SidebarMenu from '../../Sidebar/SidebarMenu'
@@ -18,17 +19,20 @@ import { useSubstrateState } from '../../../substrate-lib'
 import { TxButton, TxGroupButton } from '../../../substrate-lib/components'
 import { decorateStorage } from '@polkadot/types'
 import AccountMain from '../AddCV/AccountMain'
+import Query from './Query'
 
 const argIsOptional = arg => arg.type.toString().startsWith('Option<')
 export default function ViewCV() {
+
   const { api, jsonrpc } = useSubstrateState()
-  const [status, setStatus] = useState(null)
+  const [status, setStatus] = useState('')
   const [choosing, setChoosing] = useState('itemById')
   const [interxType, setInterxType] = useState('QUERY')
   const [palletRPCs, setPalletRPCs] = useState([])
   const [callables, setCallables] = useState([])
   const [paramFields, setParamFields] = useState([])
   const [infor, setInfor] = useState('')
+  // const [jsonStatus, setJsonStatus] = useState(JSON.parse(status))
   const initFormState = {
     palletRpc: 'cv',
     callable: 'itemById',
@@ -63,6 +67,8 @@ export default function ViewCV() {
       value: 'CV ID',
     },
   ]
+
+
   const updatePalletRPCs = () => {
     if (!api) {
       return
@@ -323,8 +329,7 @@ export default function ViewCV() {
                   <span className="show-content">31/12/2022</span>
                 </div> */}
                 <div className="cv-info">
-                  <label>Result: </label>
-                  <span className="show-content">{status}</span>
+                  <Query value={status}/>
                 </div>
                 {/* <div style={{ overflowWrap: 'break-word' }}>{status}</div> */}
               </div>
@@ -340,10 +345,18 @@ function InteractorSubmit(props) {
     attrs: { interxType },
   } = props
   if (interxType === 'QUERY') {
-    return <TxButton label="Query" type="QUERY" color="blue" {...props} />
+    return <TxButton label="View" type="QUERY" color="blue" backgroundColor="blue" {...props} />
   } else if (interxType === 'EXTRINSIC') {
     return <TxGroupButton {...props} />
   } else if (interxType === 'RPC' || interxType === 'CONSTANT') {
     return <TxButton label="Submit" type={interxType} color="blue" {...props} />
   }
+}
+function IsJsonString(str) {
+  try {
+      JSON.parse(str);
+  } catch (e) {
+      return false;
+  }
+  return true;
 }
