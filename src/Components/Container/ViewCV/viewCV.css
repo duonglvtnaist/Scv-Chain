@@ -2,7 +2,12 @@
     padding: 20px;
 }
 
-.button-view {
+.border-solid{
+    /* border:solid; */
+    /* border-color: gray; */
+    padding-top: 5px ;
+    padding-bottom: 5px;
+    padding-left: 20px;
 }
 
 .button-view-cv {
@@ -11,7 +16,10 @@
 }
 .show-cv {
     flex: 1;
-    padding: 20px;
+    padding-top: 5px ;
+    padding-right: 10px ;
+    padding-bottom: 5px;
+    padding-left: 10px;
 }
 
 .show-title {
@@ -28,3 +36,4 @@
 .show-content {
     margin-left: 10px;
 }
+

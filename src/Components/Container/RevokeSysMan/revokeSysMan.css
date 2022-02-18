@@ -1,0 +1,38 @@
+.title {
+    text-align: center;
+    font-weight: bold;
+}
+.approve {
+    padding: 20px;
+}
+
+.input-id {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+Input {
+    font-size: 12px !important;
+}
+
+.ui.labeled.input > .label {
+    font-size: 12px !important;
+    display: flex;
+    align-items: center;
+}
+
+Button {
+    font-size: 12px !important;
+}
+.button-submit {
+    display: flex;
+    justify-content: center;
+}
+
+.button-approve {
+    background-color: #3e74be !important;
+}
+
+.button-approve:hover {
+    background-color: #2b3c53 !important;
+}

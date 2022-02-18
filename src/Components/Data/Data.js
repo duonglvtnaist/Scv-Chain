@@ -54,20 +54,20 @@ export const SidebarORG = [
   },
   {
     id: 5,
-    link: '/org/request-cv',
-    title: 'Request CV',
-    icon: 'user secret',
-  },
-  {
-    id: 6,
     link: '/org/view-certificate',
     title: 'View Certificate',
     icon: 'user secret',
   },
   {
-    id: 7,
+    id: 6,
     link: '/org/revoke-certificate',
     title: 'Revoke Certificate',
+    icon: 'user secret',
+  },
+  {
+    id: 7,
+    link: '/org/request-cv',
+    title: 'Request CV',
     icon: 'user secret',
   },
 ]

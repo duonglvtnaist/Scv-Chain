@@ -18,11 +18,12 @@ import { useSubstrateState } from '../../../substrate-lib'
 import { TxButton, TxGroupButton } from '../../../substrate-lib/components'
 import { decorateStorage } from '@polkadot/types'
 import AccountMain from '../AddCV/AccountMain'
+import QueryCertificate from './QueryCertificate'
 
 const argIsOptional = arg => arg.type.toString().startsWith('Option<')
 export default function ViewCertificate() {
   const { api, jsonrpc } = useSubstrateState()
-  const [status, setStatus] = useState(null)
+  const [status, setStatus] = useState('')
   // const [choosing, setChoosing] = useState('itemById')
   const [interxType, setInterxType] = useState('QUERY')
   const [palletRPCs, setPalletRPCs] = useState([])
@@ -306,8 +307,9 @@ export default function ViewCertificate() {
                   <span className="show-content">31/12/2022</span>
                 </div> */}
                 <div className="certificate-info">
-                  <label>Result: </label>
-                  <span className="show-content">{status}</span>
+                  {/* <label>Result: </label>
+                  <span className="show-content">{status}</span> */}
+                  <QueryCertificate value={status}/>
                 </div>
                 {/* <div style={{ overflowWrap: 'break-word' }}>{status}</div> */}
               </div>
@@ -323,7 +325,7 @@ function InteractorSubmit(props) {
     attrs: { interxType },
   } = props
   if (interxType === 'QUERY') {
-    return <TxButton label="Query" type="QUERY" color="blue" {...props} />
+    return <TxButton label="View" type="QUERY" color="blue" {...props} />
   } else if (interxType === 'EXTRINSIC') {
     return <TxGroupButton {...props} />
   } else if (interxType === 'RPC' || interxType === 'CONSTANT') {
