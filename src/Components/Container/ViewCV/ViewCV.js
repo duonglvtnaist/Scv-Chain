@@ -62,12 +62,19 @@ export default function ViewCV() {
       return api.consts
     }
   }
-  const labelNames = [
+  const labelCVs = [
     {
       value: 'CV ID',
     },
   ]
 
+  const labelAccounts = [
+    {
+      value: 'Account ID'
+    },
+  ]
+
+  const [labelNames, setLabelNames] = useState(labelCVs)
 
   const updatePalletRPCs = () => {
     if (!api) {
@@ -188,9 +195,11 @@ export default function ViewCV() {
     if (data.value === 'itemById') {
       setInfor('Choose first')
       setFormState(itemByIdState)
+      setLabelNames(labelCVs)
     } else if (data.value === 'itemsByAccountId') {
       setInfor('Choose second')
       setFormState(itemsByAccountIdState)
+      setLabelNames(labelAccounts)
     }
     updatePalletRPCs()
     updateCallables()
@@ -258,7 +267,7 @@ export default function ViewCV() {
                   {paramFields.map((paramField, ind) => (
                     <Form.Field key={`${paramField.name}-${paramField.type}`}>
                       <Input
-                        placeholder={paramField.type}
+                        placeholder="Bytes"
                         fluid
                         type="text"
                         label={labelNames[ind].value}

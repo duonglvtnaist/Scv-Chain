@@ -64,7 +64,7 @@ export default function QueryCertificate ( value ) {
         <Input
             className='show-cv'
             fluid
-            label={{ basic: true, content: 'Status ID' }}
+            label={{ basic: true, content: 'Org ID' }}
             labelPosition="left"
             value={JSON.parse(value.value).org}
         ></Input>

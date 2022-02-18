@@ -8,8 +8,22 @@ import { Form, Input, Label, List } from 'semantic-ui-react';
 
 export default function Query ( value ) {
   if (!IsJsonString(value.value)) {
-    return null;
+    return <Input
+    className='show-cv'
+    fluid
+    label={{ basic: true, content: 'Infor' }}
+    labelPosition="left"
+    value='No information to show'
+></Input>;
     // {JSON.stringify(value.value) }
+  } else if (!JSON.parse(value.value).itemId) {
+    return    <Input
+                className='show-cv'
+                fluid
+                label={{ basic: true, content: 'CV IDs list' }}
+                labelPosition="left"
+                value={value.value}
+            ></Input>
   }
  
   return (
@@ -53,7 +67,7 @@ export default function Query ( value ) {
                 })
             } */}
             
-        {/* <div>{value.value}</div>  */}
+        {/* <div>{IsJsonString(value.value).toString()}</div>  */}
         <Input
             className='show-cv'
             fluid
