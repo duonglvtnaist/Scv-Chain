@@ -8,9 +8,10 @@ body {
 }
 
 .logo {
-    font-size: 20px;
-    font-weight: 800;
-    color: rgb(7, 17, 26);
+    width: auto;
+    height: 60px;
+    border: 2px solid rgb(22, 165, 221);
+    border-radius: 10px;
 }
 
 .header-right {

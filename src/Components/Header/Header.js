@@ -27,7 +27,7 @@ export default class Header extends Component {
             <Link to="/home-page" className="link">
               <Image
                 src={`${process.env.PUBLIC_URL}/assets/logo-scv.png`}
-                style={{ width: '60px', height: '60px' }}
+                className="logo"
               />
             </Link>
           </Menu.Menu>
