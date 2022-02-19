@@ -16,14 +16,15 @@ export default function Query ( value ) {
     value='No information to show'
 ></Input>;
     // {JSON.stringify(value.value) }
-  } else if (!JSON.parse(value.value).itemId) {
-    return    <Input
+  } else if (JSON.parse(value.value).itemId==null) {
+    return   <Input
                 className='show-cv'
                 fluid
                 label={{ basic: true, content: 'CV IDs list' }}
                 labelPosition="left"
                 value={value.value}
             ></Input>
+            
   }
  
   return (
