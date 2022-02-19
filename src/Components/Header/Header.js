@@ -12,7 +12,6 @@ export default class Header extends Component {
   render() {
     return (
       <Menu
-        attached="top"
         tabular
         style={{
           backgroundColor: 'rgb(0,151,202)',
