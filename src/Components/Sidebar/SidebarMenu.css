@@ -6,10 +6,11 @@
 }
 
 .menu-parent {
-    color: rgb(37, 32, 32);
+    color: white;
     font-weight: bold;
     align-items: center;
     padding: 10px;
+    font-size: 15px !important;
 }
 
 .menu-item {
@@ -20,5 +21,6 @@
 }
 
 .menu-parent:hover {
-    background-color: rgb(236, 236, 236);
+    background-color: rgb(1, 137, 182) !important;
+    border-radius: 5px;
 }

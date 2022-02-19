@@ -12388,6 +12388,37 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"scv-smart@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "scv-smart@workspace:."
+  dependencies:
+    "@polkadot/api": ^7.3.1
+    "@polkadot/extension-dapp": ^0.42.5
+    "@polkadot/keyring": ^8.3.1
+    "@polkadot/networks": ^8.3.1
+    "@polkadot/types": ^7.3.1
+    "@polkadot/ui-keyring": ^0.89.1
+    "@polkadot/ui-settings": ^0.89.1
+    "@polkadot/util": ^8.3.1
+    "@polkadot/util-crypto": ^8.3.1
+    eslint-config-prettier: ^8.3.0
+    gh-pages: ^3.2.3
+    node-polyfill-webpack-plugin: ^1.1.4
+    prettier: 2.5.1
+    prop-types: ^15.7.2
+    react: ^17.0.2
+    react-app-rewired: ^2.1.11
+    react-copy-to-clipboard: ^5.0.4
+    react-dom: ^17.0.2
+    react-router-dom: ^6.2.1
+    react-scripts: ^5.0.0
+    semantic-ui-css: "Semantic-Org/Semantic-UI-CSS#master"
+    semantic-ui-react: ^2.1.1
+    semistandard: ^16.0.0
+    stream-browserify: ^3.0.0
+  languageName: unknown
+  linkType: soft
+
 "select-hose@npm:^2.0.0":
   version: 2.0.0
   resolution: "select-hose@npm:2.0.0"
@@ -13144,37 +13175,6 @@ resolve@^2.0.0-next.3:
   checksum: 777dbed3987e04f713b9d74e08f66ab4c23c76cabb07c666c0ae9a06e58e8961063e17b5c7b9c23421b75e9caa9fb78084688e509624e57b19c92c174fbd964d
   languageName: node
   linkType: hard
-
-"substrate-front-end-template@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "substrate-front-end-template@workspace:."
-  dependencies:
-    "@polkadot/api": ^7.3.1
-    "@polkadot/extension-dapp": ^0.42.5
-    "@polkadot/keyring": ^8.3.1
-    "@polkadot/networks": ^8.3.1
-    "@polkadot/types": ^7.3.1
-    "@polkadot/ui-keyring": ^0.89.1
-    "@polkadot/ui-settings": ^0.89.1
-    "@polkadot/util": ^8.3.1
-    "@polkadot/util-crypto": ^8.3.1
-    eslint-config-prettier: ^8.3.0
-    gh-pages: ^3.2.3
-    node-polyfill-webpack-plugin: ^1.1.4
-    prettier: 2.5.1
-    prop-types: ^15.7.2
-    react: ^17.0.2
-    react-app-rewired: ^2.1.11
-    react-copy-to-clipboard: ^5.0.4
-    react-dom: ^17.0.2
-    react-router-dom: ^6.2.1
-    react-scripts: ^5.0.0
-    semantic-ui-css: "Semantic-Org/Semantic-UI-CSS#master"
-    semantic-ui-react: ^2.1.1
-    semistandard: ^16.0.0
-    stream-browserify: ^3.0.0
-  languageName: unknown
-  linkType: soft
 
 "supports-color@npm:^5.3.0":
   version: 5.5.0

@@ -49,10 +49,10 @@ export default function AddCertificate(props) {
     }
   }
   const labelNames = [
-  {
-    value: 'Metadata'
-  },
-]
+    {
+      value: 'Metadata',
+    },
+  ]
   const updatePalletRPCs = () => {
     if (!api) {
       return
@@ -255,9 +255,9 @@ export default function AddCertificate(props) {
                         ) : null}
                       </Form.Field>
                     ))}
-                </Form>
-                <Form>
-                  <Form.Field style={{ textAlign: 'center' }}>
+                  </Form>
+                  <Form>
+                    <Form.Field style={{ textAlign: 'center' }}>
                       <InteractorSubmit
                         setStatus={setStatus}
                         attrs={{
@@ -268,13 +268,13 @@ export default function AddCertificate(props) {
                           paramFields,
                         }}
                       />
-                  </Form.Field>
-                </Form>
+                    </Form.Field>
+                  </Form>
                 </div>
                 {/* <div className="button-submit">
                   <Button className="button-submit-certificate">SUBMIT</Button>
                 </div> */}
-  
+
                 <div style={{ overflowWrap: 'break-word' }}>{status}</div>
               </div>
             </Segment.Group>

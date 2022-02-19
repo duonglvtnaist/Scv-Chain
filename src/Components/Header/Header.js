@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Dropdown, Icon, Menu } from 'semantic-ui-react'
+import { Container, Dropdown, Icon, Image, Menu } from 'semantic-ui-react'
 import SidebarMenu from '../Sidebar/SidebarMenu'
 import MenuItem from '../Menu/MenuItem'
 import './header.css'
@@ -15,7 +15,7 @@ export default class Header extends Component {
         attached="top"
         tabular
         style={{
-          backgroundColor: 'white',
+          backgroundColor: 'rgb(0,151,202)',
           border: 'none',
           alignItems: 'center',
           borderRadius: 'none',
@@ -25,7 +25,10 @@ export default class Header extends Component {
         <Container>
           <Menu.Menu>
             <Link to="/home-page" className="link">
-              <Menu.Item icon="th" className="logo"></Menu.Item>
+              <Image
+                src={`${process.env.PUBLIC_URL}/assets/logo-scv.png`}
+                style={{ width: '60px', height: '60px' }}
+              />
             </Link>
           </Menu.Menu>
           {/* <Menu.Menu position="right">
