@@ -15,9 +15,12 @@ import {
   Dimmer,
   Loader,
   Message,
+  SegmentGroup,
 } from 'semantic-ui-react'
 import './addCV.css'
 import SidebarMenu from '../../Sidebar/SidebarMenu'
+import SemanticDatepicker from 'react-semantic-ui-datepickers';
+import 'react-semantic-ui-datepickers/dist/react-semantic-ui-datepickers.css';
 // import { Grid, Form, Dropdown, Input, Label } from 'semantic-ui-react'
 
 import { useSubstrateState } from '../../../substrate-lib'
@@ -37,6 +40,10 @@ export default function AddCV(props) {
   const [callables, setCallables] = useState([])
   const [paramFields, setParamFields] = useState([])
 
+
+  
+ 
+
   const initFormState = {
     palletRpc: 'cv',
     callable: 'createItem',
@@ -45,7 +52,7 @@ export default function AddCV(props) {
 
   const [formState, setFormState] = useState(initFormState)
   const { palletRpc, callable, inputParams } = formState
-
+  
   const getApiType = (api, interxType) => {
     if (interxType === 'QUERY') {
       return api.query
@@ -57,6 +64,12 @@ export default function AddCV(props) {
       return api.consts
     }
   }
+  const indMeta1 = 1
+  const indMeta2 = 2
+  const indMeta3 = 3
+  const indMeta4 = 4
+
+ 
   const labelNames = [
     {
       value: 'Account ID',
@@ -74,6 +87,19 @@ export default function AddCV(props) {
       value: 'Certificate ID',
     },
   ]
+  const metaDataLabels = {
+    profile:'Profile',
+    employment_history:'Employment History',
+    education:'Education',
+    references:'References',
+  }
+  const initMetaDataInputs = {
+    profile:'',
+    employment_history:'',
+    education:'',
+    references:'',
+  }
+  const [metaDataInputs, setMetaInputs] = useState(initMetaDataInputs)
   const updatePalletRPCs = () => {
     if (!api) {
       return
@@ -176,6 +202,7 @@ export default function AddCV(props) {
           paramField: { type },
         } = state
         const inputParams = [...formState.inputParams]
+        
         inputParams[ind] = { type, value }
         res = { ...formState, inputParams }
       } else if (state === 'palletRpc') {
@@ -187,10 +214,49 @@ export default function AddCV(props) {
     })
   }
 
+  const handleDateChange = (_, data) => {
+    setFormState(formState => {
+      let res
+      const { state, value } = data
+
+      const {
+        ind,
+        paramField: { type },
+      } = state
+      const inputParams = [...formState.inputParams]
+      const date = new Date(value).getTime()
+      inputParams[ind] = { type, date }
+      res = { ...formState, inputParams }
+
+      return res
+    })
+  
+  }
+  const onMetaDataChange = (_,data) => {
+    const {state, value} = data
+    const inputParams = [...formState.inputParams]
+    
+    if(state===1){
+      setMetaInputs({profile: value, employment_history: metaDataInputs.employment_history, education: metaDataInputs.education, references: metaDataInputs.references })
+    } else if(state===2){
+      setMetaInputs({profile: metaDataInputs.profile, employment_history: value, education: metaDataInputs.education, references: metaDataInputs.references })
+    } else if(state===3){
+      setMetaInputs({profile: metaDataInputs.profile, employment_history: metaDataInputs.employment_history, education: value, references: metaDataInputs.references })
+    } else if(state===4){
+      setMetaInputs({profile: metaDataInputs.profile, employment_history: metaDataInputs.employment_history, education: metaDataInputs.education, references: value })
+    }
+    inputParams[1]= {type:'Bytes', value:(JSON.stringify(metaDataInputs))}
+    
+    // setFormState({palletRpc:'cv', callable:'createItem',inputParams: inputParams})
+    setFormState(formState => {
+      return {...formState, inputParams}
+    })
+  }
+  
   const onInterxTypeChange = (ev, data) => {
     setInterxType(data.value)
     // clear the formState
-    setFormState(initFormState)
+    setFormState({palletRpc:''})
   }
 
   const getOptionalMsg = interxType =>
@@ -232,27 +298,111 @@ export default function AddCV(props) {
                 <AccountMain />
 
                 <Form style={{ marginTop: '10px' }}>
-                  {paramFields.map((paramField, ind) => (
-                    <Form.Field key={`${paramField.name}-${paramField.type}`}>
-                      <Input
-                        placeholder={paramField.type}
-                        fluid
-                        type="text"
-                        label={labelNames[ind].value}
-                        state={{ ind, paramField }}
-                        value={inputParams[ind] ? inputParams[ind].value : ''}
-                        onChange={onPalletCallableParamChange}
-                      />
-                      {paramField.optional ? (
-                        <Label
-                          basic
-                          pointing
-                          color="teal"
-                          content={getOptionalMsg(interxType)}
-                        />
-                      ) : null}
-                    </Form.Field>
-                  ))}
+                  {paramFields.map((paramField, ind) => {
+                    if (paramField.name === "orgDate" || paramField.name ==="expDate"){
+                      return <Segment.Group horizontal key={0}>                          
+                            <Segment>
+                            <Form.Field key={`${paramField.name}-${paramField.type}`}>
+                            <SemanticDatepicker
+                              label={labelNames[ind].value}
+                              state={{ ind, paramField }}
+                              className='clndr-cell'
+                              onChange={handleDateChange}
+                            />
+                            {paramField.optional ? (
+                              <Label
+                                basic
+                                pointing = "left"
+                                color="teal"
+                                content={getOptionalMsg(interxType)}
+                              />
+                            ) : null}
+                            </Form.Field>
+                            </Segment>  
+
+                          </Segment.Group>
+                         
+                      
+                    
+                    }else if (paramField.name !== "metadata"){
+                      return <Form.Field key={`${paramField.name}-${paramField.type}`}>
+                              <Input
+                                placeholder={paramField.type}
+                                fluid
+                                type="text"
+                                // label={labelNames[ind].value}
+                                label={labelNames[ind].value}
+                                state={{ ind, paramField }}
+                                value={inputParams[ind] ? inputParams[ind].value : ''}
+                                onChange={onPalletCallableParamChange}
+                              />
+                              {paramField.optional ? (
+                                <Label
+                                  basic
+                                  pointing
+                                  color="teal"
+                                  content={getOptionalMsg(interxType)}
+                                />
+                              ) : null}
+                            </Form.Field>
+                    }
+                    
+                    return <div>
+                          <Form.Field >
+                            <Input
+                              placeholder='Bytes'
+                              fluid
+                              type="text"
+                              // label={labelNames[ind].value}
+                              label='Profile'
+                              state={indMeta1}
+                              value={metaDataInputs.profile ? metaDataInputs.profile : ''}
+                              onChange={onMetaDataChange}
+                            />
+                          </Form.Field>
+                          <Form.Field >
+                            <Input
+                              placeholder='Bytes'
+                              fluid
+                              type="text"
+                              // label={labelNames[ind].value}
+                              label='Employment History'
+                              state={indMeta2}
+                              value={metaDataInputs.employment_history ? metaDataInputs.employment_history : ''}
+                              onChange={onMetaDataChange}
+                            />
+                          </Form.Field>
+                          <Form.Field >
+                            <Input
+                              placeholder='Bytes'
+                              fluid
+                              type="text"
+                              // label={labelNames[ind].value}
+                              label='Education'
+                              state={indMeta3}
+                              value={metaDataInputs.education ? metaDataInputs.education : ''}
+                              onChange={onMetaDataChange}
+                            />
+                          </Form.Field>
+                          <Form.Field style={{ marginBottom: '15px' }}>
+                            <Input
+                              placeholder='Bytes'
+                              fluid
+                              type="text"
+                              // label={labelNames[ind].value}
+                              label='References'
+                              state={indMeta4}
+                              value={metaDataInputs.references ? metaDataInputs.references : ''}
+                              onChange={onMetaDataChange}
+                            />
+                          </Form.Field>
+                          
+                      </div>
+                          
+                    // return 
+                          
+                  })}
+                  {/* <SemanticDatepicker onChange={handleDateChange} /> */}
                 </Form>
                 <Form>
                   <Form.Field style={{ margin: '0px' }}>
@@ -261,6 +411,8 @@ export default function AddCV(props) {
                       labelPosition="left"
                       placeholder="Type"
                       style={{ margin: '10px 10px 10px 0px' }}
+                      value={JSON.stringify(inputParams[1])}
+                      // JSON.stringify(inputParams[0])
                     />
                   </Form.Field>
                   <Form.Field>
@@ -274,7 +426,7 @@ export default function AddCV(props) {
                 </Form>
 
                 <Form style={{ marginBottom: '10px' }}>
-                  <TextArea placeholder="Description ..." />
+                  <TextArea placeholder="Description ..." value={JSON.stringify(formState)} />
                 </Form>
 
                 <Form>

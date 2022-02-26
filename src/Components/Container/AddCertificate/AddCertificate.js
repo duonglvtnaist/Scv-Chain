@@ -17,6 +17,10 @@ import SidebarMenu from '../../Sidebar/SidebarMenu'
 import { SidebarORG } from '../../Data/Data'
 import { useSubstrateState } from '../../../substrate-lib'
 import { TxButton, TxGroupButton } from '../../../substrate-lib/components'
+import AccountMain from '../AddCV/AccountMain'
+
+import SemanticDatepicker from 'react-semantic-ui-datepickers';
+import 'react-semantic-ui-datepickers/dist/react-semantic-ui-datepickers.css';
 
 const argIsOptional = arg => arg.type.toString().startsWith('Option<')
 export default function AddCertificate(props) {
@@ -33,6 +37,28 @@ export default function AddCertificate(props) {
     callable: 'createCertificate',
     inputParams: [],
   }
+  const indName = 1
+  const indContent = 2
+  const indOrigDate = 3
+  const indExpDate = 4
+  const indValidator= 5
+
+  const metaDataLabels = {
+    name:'Name',
+    content:'Received For',
+    origDate:'Original Date',
+    expDate:'Expired Date',
+    validator:'Verify By'
+  }
+
+  const initMetaDataInputs = {
+    name:'',
+    content:'',
+    origDate:0,
+    expDate:0,
+    validator:''
+  }
+  const [metaDataInputs, setMetaInputs] = useState(initMetaDataInputs)
 
   const [formState, setFormState] = useState(initFormState)
   const { palletRpc, callable, inputParams } = formState
@@ -165,7 +191,103 @@ export default function AddCertificate(props) {
       return res
     })
   }
-
+  const onMetaDataChange = (_,data) => {
+    const {state, value} = data
+    const inputParams = [...formState.inputParams]
+    
+    if(state===indName){
+      setMetaInputs({
+        name:value,
+        content:metaDataInputs.content,
+        origDate:metaDataInputs.origDate,
+        expDate:metaDataInputs.expDate,
+        validator:metaDataInputs.validator
+      })
+    } else if(state===indContent){
+      setMetaInputs({
+        name:metaDataInputs.name,
+        content:value,
+        origDate:metaDataInputs.origDate,
+        expDate:metaDataInputs.expDate,
+        validator:metaDataInputs.validator})
+    } else if(state===indOrigDate){
+      setMetaInputs({
+        name:metaDataInputs.name,
+        content:metaDataInputs.content,
+        origDate:value,
+        expDate:metaDataInputs.expDate,
+        validator:metaDataInputs.validator})
+    } else if(state===indExpDate){
+      setMetaInputs({
+        name:metaDataInputs.name,
+        content:metaDataInputs.content,
+        origDate:metaDataInputs.origDate,
+        expDate:value,
+        validator:metaDataInputs.validator})
+    } else if(state===indValidator){
+      setMetaInputs({
+        name:metaDataInputs.name,
+        content:metaDataInputs.content,
+        origDate:metaDataInputs.origDate,
+        expDate:metaDataInputs.expDate,
+        validator:value })
+    }
+    inputParams[0]= {type:'Bytes', value:(JSON.stringify(metaDataInputs))}
+    
+    // setFormState({palletRpc:'cv', callable:'createItem',inputParams: inputParams})
+    setFormState(formState => {
+      return {...formState, inputParams}
+    })
+  }
+  const handleDateChange = (_, data) => {
+    const {state, value} = data
+    const inputParams = [...formState.inputParams]
+    
+    if(state===indName){
+      setMetaInputs({
+        name:value,
+        content:metaDataInputs.content,
+        origDate:metaDataInputs.origDate,
+        expDate:metaDataInputs.expDate,
+        validator:metaDataInputs.validator
+      })
+    } else if(state===indContent){
+      setMetaInputs({
+        name:metaDataInputs.name,
+        content:value,
+        origDate:metaDataInputs.origDate,
+        expDate:metaDataInputs.expDate,
+        validator:metaDataInputs.validator})
+    } else if(state===indOrigDate){
+      setMetaInputs({
+        name:metaDataInputs.name,
+        content:metaDataInputs.content,
+        origDate: new Date(value).getTime(),
+        expDate:metaDataInputs.expDate,
+        validator:metaDataInputs.validator})
+    } else if(state===indExpDate){
+      setMetaInputs({
+        name:metaDataInputs.name,
+        content:metaDataInputs.content,
+        origDate:metaDataInputs.origDate,
+        expDate:new Date(value).getTime(),
+        validator:metaDataInputs.validator})
+    } else if(state===indValidator){
+      setMetaInputs({
+        name:metaDataInputs.name,
+        content:metaDataInputs.content,
+        origDate:metaDataInputs.origDate,
+        expDate:metaDataInputs.expDate,
+        validator:value })
+    }
+    inputParams[0]= {type:'Bytes', value:(JSON.stringify(metaDataInputs))}
+    
+    // setFormState({palletRpc:'cv', callable:'createItem',inputParams: inputParams})
+    setFormState(formState => {
+      return {...formState, inputParams}
+    })
+  
+  }
   const onInterxTypeChange = (ev, data) => {
     setInterxType(data.value)
     // clear the formState
@@ -206,7 +328,8 @@ export default function AddCertificate(props) {
                   placeholder="Enter ID ..."
                   className="input-id"
                 ></Input> */}
-                <div className="addCV-Info">
+                <div >
+                  <AccountMain />
                   {/* <div style={{ paddingBottom: '10px' }}>
                     <input type="file" id="getFile" />
                     <Checkbox label="Public" style={{ marginLeft: '15px' }} />
@@ -232,30 +355,161 @@ export default function AddCertificate(props) {
                   <Form>
                     <TextArea placeholder="Description ..." />
                   </Form> */}
-                  <Form>
-                    {paramFields.map((paramField, ind) => (
-                      <Form.Field key={`${paramField.name}-${paramField.type}`}>
-                        <Input
-                          placeholder={paramField.type}
-                          fluid
-                          type="text"
-                          label={labelNames[ind].value}
-                          className="input-cv"
-                          state={{ ind, paramField }}
-                          value={inputParams[ind] ? inputParams[ind].value : ''}
-                          onChange={onPalletCallableParamChange}
+                  <Form style={{ marginTop: '10px' , marginBottom: '10px'}}>
+                  {paramFields.map((paramField, ind) => {
+                     if (paramField.name === "orgDate" || paramField.name ==="expDate"){
+                      return <Form.Field key={`${paramField.name}-${paramField.type}`}>
+                      <SemanticDatepicker
+                        label={labelNames[ind].value}
+                        state={{ ind, paramField }}
+                        className='clndr-cell'
+                        onChange={handleDateChange}
+                      />
+                      {paramField.optional ? (
+                        <Label
+                          basic
+                          pointing = "left"
+                          color="teal"
+                          content={getOptionalMsg(interxType)}
                         />
-                        {paramField.optional ? (
-                          <Label
-                            basic
-                            pointing
-                            color="teal"
-                            content={getOptionalMsg(interxType)}
-                          />
-                        ) : null}
+                      ) : null}
                       </Form.Field>
-                    ))}
-                  </Form>
+                    }else if (paramField.name !== "metaData"){
+                      return <Form.Field key={`${paramField.name}-${paramField.type}`}>
+                              <Input
+                                placeholder={paramField.type}
+                                fluid
+                                type="text"
+                                label={labelNames[ind].value}
+                                state={{ ind, paramField }}
+                                value={inputParams[ind] ? inputParams[ind].value : ''}
+                                onChange={onPalletCallableParamChange}
+                              />
+                              {paramField.optional ? (
+                                <Label
+                                  basic
+                                  pointing
+                                  color="teal"
+                                  content={getOptionalMsg(interxType)}
+                                />
+                              ) : null}
+                            </Form.Field>
+                    }
+                    return <div>
+                          <Form.Field >
+                            <Input
+                              placeholder='Bytes'
+                              fluid
+                              type="text"
+                              // label={labelNames[ind].value}
+                              label={metaDataLabels.name}
+                              state={indName}
+                              value={metaDataInputs.name ? metaDataInputs.name : ''}
+                              onChange={onMetaDataChange}
+                            />
+                          </Form.Field>
+                          <Form.Field >
+                            <Input
+                              placeholder='Bytes'
+                              fluid
+                              type="text"
+                              // label={labelNames[ind].value}
+                              label={metaDataLabels.content}
+                              state={indContent}
+                              value={metaDataInputs.content ? metaDataInputs.content : ''}
+                              onChange={onMetaDataChange}
+                            />
+                          </Form.Field>
+                          <Segment.Group horizontal>
+                              <Segment>
+                                <Form.Field >
+                                <SemanticDatepicker
+                                  label={metaDataLabels.origDate}
+                                  state={indOrigDate}
+                                  className='clndr-cell'
+                                  onChange={handleDateChange}
+                                />
+                                
+                                <Label
+                                  basic
+                                  pointing = "above"
+                                  color="teal"
+                                  content={getOptionalMsg(interxType)}
+                                />
+                                </Form.Field>
+                              </Segment>
+                              <Segment>
+                                <Form.Field >
+                                  <SemanticDatepicker
+                                    label={metaDataLabels.expDate}
+                                    state={indExpDate}
+                                    className='clndr-cell'
+                                    onChange={handleDateChange}
+                                  />
+                                 
+                                    <Label
+                                      basic
+                                      pointing = "above"
+                                      color="teal"
+                                      content={getOptionalMsg(interxType)}
+                                    />
+                                </Form.Field>
+                              </Segment>
+                            </Segment.Group>
+                          {/* <Form.Field >
+                            <Input
+                              placeholder='Bytes'
+                              fluid
+                              type="text"
+                              // label={labelNames[ind].value}
+                              label={metaDataLabels.origDate}
+                              state={indOrigDate}
+                              value={metaDataInputs.origDate ? metaDataInputs.origDate : ''}
+                              onChange={onMetaDataChange}
+                            />
+                          </Form.Field>
+                          <Form.Field>
+                            <Input
+                              placeholder='Bytes'
+                              fluid
+                              type="text"
+                              // label={labelNames[ind].value}
+                              label={metaDataLabels.expDate}
+                              state={indExpDate}
+                              value={metaDataInputs.expDate ? metaDataInputs.expDate : ''}
+                              onChange={onMetaDataChange}
+                            />
+                          </Form.Field> */}
+
+                          <Form.Field style={{ marginBottom: '15px' }}>
+                            <Input
+                              placeholder='Bytes'
+                              fluid
+                              type="text"
+                              // label={labelNames[ind].value}
+                              label={metaDataLabels.validator}
+                              state={indValidator}
+                              value={metaDataInputs.validator ? metaDataInputs.validator : ''}
+                              onChange={onMetaDataChange}
+                            />
+                          </Form.Field>
+                          {/* <Form.Field style={{ marginBottom: '15px' }}>
+                            <Input
+                              placeholder='Bytes'
+                              fluid
+                              type="text"
+                              // label={labelNames[ind].value}
+                              label='Test'
+                              state={indValidator}
+                              value={JSON.stringify(inputParams)}
+                            />
+                          </Form.Field> */}
+                      </div>
+                          
+                    // return 
+                          
+                  })}
+                </Form>
                   <Form>
                     <Form.Field style={{ textAlign: 'center' }}>
                       <InteractorSubmit

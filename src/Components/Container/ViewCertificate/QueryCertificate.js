@@ -7,11 +7,25 @@ import { Form, Input, Label, List } from 'semantic-ui-react';
 
 
 export default function QueryCertificate ( value ) {
-  if (!IsJsonString(value.value)) {
-    return null;
-    // {JSON.stringify(value.value) }
+  if(value.value===""){
+      return null;
+  } else if (!IsJsonString(value.value)) {
+    // return <Label>Can't find that certificate!!!</Label>
+    return <Input     
+    className='show-cv'
+    fluid
+    label={{ basic: true, content: 'Infor' }}
+    labelPosition="left" 
+    value ="Can't find that certificate!!!"
+    />
   }
- 
+  const metaDataLabels = {
+    name:'Name',
+    content:'Received For',
+    origDate:'Original Date',
+    expDate:'Expired Date',
+    validator:'Verify By'
+  }
   return (
 
     <section className='storage--Queries'>
@@ -76,14 +90,42 @@ export default function QueryCertificate ( value ) {
             labelPosition="left"
             value={JSON.parse(value.value).scrore}
         ></Input>
-                <Input
+
+        <Input
             className='show-cv'
             fluid
-            label={{ basic: true, content: 'Meta Data' }}
+            label={{ basic: true, content: metaDataLabels.name }}
             labelPosition="left"
-            value={JSON.parse(value.value).metadata}
+            value={JSON.parse(hex_to_ascii(JSON.parse(value.value).metadata).substr(1,hex_to_ascii(JSON.parse(value.value).metadata).length-1)).name}
         ></Input>
-       
+        <Input
+            className='show-cv'
+            fluid
+            label={{ basic: true, content: metaDataLabels.content }}
+            labelPosition="left"
+            value={JSON.parse(hex_to_ascii(JSON.parse(value.value).metadata).substr(1,hex_to_ascii(JSON.parse(value.value).metadata).length-1)).content}
+        ></Input>
+        <Input
+            className='show-cv'
+            fluid
+            label={{ basic: true, content: metaDataLabels.origDate }}
+            labelPosition="left"
+            value={JSON.parse(hex_to_ascii(JSON.parse(value.value).metadata).substr(1,hex_to_ascii(JSON.parse(value.value).metadata).length-1)).origDate}
+        ></Input>
+        <Input
+            className='show-cv'
+            fluid
+            label={{ basic: true, content: metaDataLabels.expDate }}
+            labelPosition="left"
+            value={JSON.parse(hex_to_ascii(JSON.parse(value.value).metadata).substr(1,hex_to_ascii(JSON.parse(value.value).metadata).length-1)).expDate}
+        ></Input>
+        <Input
+            className='show-cv'
+            fluid
+            label={{ basic: true, content: metaDataLabels.validator }}
+            labelPosition="left"
+            value={JSON.parse(hex_to_ascii(JSON.parse(value.value).metadata).substr(1,hex_to_ascii(JSON.parse(value.value).metadata).length-1)).validator}
+        ></Input>
         {/* <div> {IsJsonString(value.value) ? JSON.parse(value.value).itemId:''}</div> */}
 
     </section>
@@ -97,3 +139,12 @@ export default function QueryCertificate ( value ) {
     }
     return true;
   }
+  function hex_to_ascii(str1)
+ {
+	var hex  = str1.toString();
+	var str = '';
+	for (var n = 0; n < hex.length; n += 2) {
+		str += String.fromCharCode(parseInt(hex.substr(n, 2), 16));
+	}
+	return str;
+ }
