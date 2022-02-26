@@ -2,12 +2,14 @@
 // SPDX-License-Identifier: Apache-2.0
 
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Form, Input, Label, List } from 'semantic-ui-react';
 
 
 export default function Query ( value ) {
-  if (!IsJsonString(value.value)) {
+    if(value.value===""){
+        return null;
+    } else if (!IsJsonString(value.value)) {
     return <Input
     className='show-cv'
     fluid
@@ -26,7 +28,6 @@ export default function Query ( value ) {
             ></Input>
             
   }
- 
   return (
 
     <section className='storage--Queries'>
@@ -114,16 +115,16 @@ export default function Query ( value ) {
         <Input
             className='show-cv'
             fluid
-            label={{ basic: true, content: 'Org Date' }}
+            label={{ basic: true, content: 'Original Date' }}
             labelPosition="left"
-            value={JSON.parse(value.value).orgDate}
+            value={new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit'}).format(JSON.parse(value.value).orgDate)}
         ></Input>
         <Input
             className='show-cv'
             fluid
-            label={{ basic: true, content: 'Expired ID' }}
+            label={{ basic: true, content: 'Expired Date' }}
             labelPosition="left"
-            value={JSON.parse(value.value).expDate}
+            value={new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit'}).format(JSON.parse(value.value).expDate)}
         ></Input>
                 <Input
             className='show-cv'
@@ -142,9 +143,30 @@ export default function Query ( value ) {
         <Input
             className='show-cv'
             fluid
-            label={{ basic: true, content: 'Meta Data' }}
+            label={{ basic: true, content: 'Profile' }}
             labelPosition="left"
-            value={JSON.parse(value.value).metadata}
+            value={JSON.parse(hex_to_ascii(JSON.parse(value.value).metadata).substr(1,hex_to_ascii(JSON.parse(value.value).metadata).length-1)).profile}
+        ></Input>
+        <Input
+            className='show-cv'
+            fluid
+            label={{ basic: true, content: 'Employment History' }}
+            labelPosition="left"
+            value={JSON.parse(hex_to_ascii(JSON.parse(value.value).metadata).substr(1,hex_to_ascii(JSON.parse(value.value).metadata).length-1)).employment_history}
+        ></Input>
+        <Input
+            className='show-cv'
+            fluid
+            label={{ basic: true, content: 'Education' }}
+            labelPosition="left"
+            value={JSON.parse(hex_to_ascii(JSON.parse(value.value).metadata).substr(1,hex_to_ascii(JSON.parse(value.value).metadata).length-1)).education}
+        ></Input>
+        <Input
+            className='show-cv'
+            fluid
+            label={{ basic: true, content: 'References' }}
+            labelPosition="left"
+            value={JSON.parse(hex_to_ascii(JSON.parse(value.value).metadata).substr(1,hex_to_ascii(JSON.parse(value.value).metadata).length-1)).references}
         ></Input>
         {/* <div> {IsJsonString(value.value) ? JSON.parse(value.value).itemId:''}</div> */}
 
@@ -159,3 +181,13 @@ export default function Query ( value ) {
     }
     return true;
   }
+
+  function hex_to_ascii(str1)
+ {
+	var hex  = str1.toString();
+	var str = '';
+	for (var n = 0; n < hex.length; n += 2) {
+		str += String.fromCharCode(parseInt(hex.substr(n, 2), 16));
+	}
+	return str;
+ }

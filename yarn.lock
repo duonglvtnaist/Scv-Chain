@@ -1447,6 +1447,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime@npm:^7.6.2":
+  version: 7.17.2
+  resolution: "@babel/runtime@npm:7.17.2"
+  dependencies:
+    regenerator-runtime: ^0.13.4
+  checksum: a48702d271ecc59c09c397856407afa29ff980ab537b3da58eeee1aeaa0f545402d340a1680c9af58aec94dfdcbccfb6abb211991b74686a86d03d3f6956cacd
+  languageName: node
+  linkType: hard
+
 "@babel/runtime@npm:^7.7.6":
   version: 7.17.0
   resolution: "@babel/runtime@npm:7.17.0"
@@ -1506,6 +1515,15 @@ __metadata:
   version: 12.0.0
   resolution: "@csstools/normalize.css@npm:12.0.0"
   checksum: fbef0f7fe4edbc3ce31b41257f0fa06e0442f11260e41c082a98de9b824997786a16900e7a5c0f4ca8f736dcd25dfd01c153d1c994a07d42c93c0a526ce0774d
+  languageName: node
+  linkType: hard
+
+"@date-fns/upgrade@npm:1.0.3":
+  version: 1.0.3
+  resolution: "@date-fns/upgrade@npm:1.0.3"
+  dependencies:
+    date-fns: ^2.1
+  checksum: 0e36ad6d90ce2db86087682a69ad8f3a5079402d3a1e4ed2e72ad7b6c7e5e03d3c1f165e9805610d049d9c2e879cdcb7131d53b1ab5a31e201e1bcdf3022e669
   languageName: node
   linkType: hard
 
@@ -4751,6 +4769,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"classnames@npm:2.3.1":
+  version: 2.3.1
+  resolution: "classnames@npm:2.3.1"
+  checksum: 14db8889d56c267a591f08b0834989fe542d47fac659af5a539e110cc4266694e8de86e4e3bbd271157dbd831361310a8293e0167141e80b0f03a0f175c80960
+  languageName: node
+  linkType: hard
+
 "clean-css@npm:^5.2.2":
   version: 5.2.2
   resolution: "clean-css@npm:5.2.2"
@@ -5457,6 +5482,26 @@ __metadata:
     whatwg-mimetype: ^2.3.0
     whatwg-url: ^8.0.0
   checksum: 97caf828aac25e25e04ba6869db0f99c75e6859bb5b424ada28d3e7841941ebf08ddff3c1b1bb4585986bd507a5d54c2a716853ea6cb98af877400e637393e71
+  languageName: node
+  linkType: hard
+
+"date-fns@npm:2.28.0, date-fns@npm:^2.0.0, date-fns@npm:^2.1":
+  version: 2.28.0
+  resolution: "date-fns@npm:2.28.0"
+  checksum: a0516b2e4f99b8bffc6cc5193349f185f195398385bdcaf07f17c2c4a24473c99d933eb0018be4142a86a6d46cb0b06be6440ad874f15e795acbedd6fd727a1f
+  languageName: node
+  linkType: hard
+
+"dayzed@npm:3.2.2":
+  version: 3.2.2
+  resolution: "dayzed@npm:3.2.2"
+  dependencies:
+    "@babel/runtime": ^7.6.2
+    date-fns: ^2.0.0
+  peerDependencies:
+    prop-types: ^15
+    react: ^16.8 || ^17.0
+  checksum: 755eb7082534a2eda6236ae68f98cf5c2e592a75cdb727bb09499ca23e69c01add9e78e168f5330cd01c434078dc48a994b7093aa85443572efc3d0bca13e258
   languageName: node
   linkType: hard
 
@@ -7127,6 +7172,13 @@ __metadata:
     combined-stream: ^1.0.8
     mime-types: ^2.1.12
   checksum: b019e8d35c8afc14a2bd8a7a92fa4f525a4726b6d5a9740e8d2623c30e308fbb58dc8469f90415a856698933c8479b01646a9dff33c87cc4e76d72aedbbf860d
+  languageName: node
+  linkType: hard
+
+"format-string-by-pattern@npm:1.2.2":
+  version: 1.2.2
+  resolution: "format-string-by-pattern@npm:1.2.2"
+  checksum: 497aa92eca78be2f74113cb3bbbc0194d0db1938a9292e7d7050f5ee2898e1092060ec793b4427e53cc91f20a6bb0a5e8bb7477100a8027cd0d2528c2b1ea4d8
   languageName: node
   linkType: hard
 
@@ -11758,7 +11810,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-fast-compare@npm:^3.0.1":
+"react-fast-compare@npm:3.2.0, react-fast-compare@npm:^3.0.1":
   version: 3.2.0
   resolution: "react-fast-compare@npm:3.2.0"
   checksum: 8ef272c825ae329f61633ce4ce7f15aa5b84e5214d88bc0823880236e03e985a13195befa2c7a4eda7db3b017dc7985729152d88445823f652403cf36c2b86aa
@@ -11887,6 +11939,23 @@ __metadata:
   bin:
     react-scripts: bin/react-scripts.js
   checksum: 55ffad0d68ee6345326f5803c1925ae44b46cc33cb1cad9bcb68fd1784acfb3876bc12118b3079bc4d934834ae0197a9776baa0a06df0263831acc91ac42df29
+  languageName: node
+  linkType: hard
+
+"react-semantic-ui-datepickers@npm:^2.16.2":
+  version: 2.16.2
+  resolution: "react-semantic-ui-datepickers@npm:2.16.2"
+  dependencies:
+    "@date-fns/upgrade": 1.0.3
+    classnames: 2.3.1
+    date-fns: 2.28.0
+    dayzed: 3.2.2
+    format-string-by-pattern: 1.2.2
+    react-fast-compare: 3.2.0
+  peerDependencies:
+    react: ^16.8 || ^17.0
+    semantic-ui-react: ">=0.75.0"
+  checksum: a2020422279dafbb1fc608c8b8a6162330261d0c31774017d93ac0650c3dfccee2c1073a943e9e0e4ca80c60abe771d82973479a1fae6c86130479574d36bc58
   languageName: node
   linkType: hard
 
@@ -12412,6 +12481,7 @@ resolve@^2.0.0-next.3:
     react-dom: ^17.0.2
     react-router-dom: ^6.2.1
     react-scripts: ^5.0.0
+    react-semantic-ui-datepickers: ^2.16.2
     semantic-ui-css: "Semantic-Org/Semantic-UI-CSS#master"
     semantic-ui-react: ^2.1.1
     semistandard: ^16.0.0
