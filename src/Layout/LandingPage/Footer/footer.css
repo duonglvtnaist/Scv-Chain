@@ -1,0 +1,52 @@
+.footer {
+    width: 100%;
+    padding: 298px 96px 0px 136px;
+}
+
+.footerTop {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 95px;
+}
+
+.footerTopLeft {
+    margin-right: 300px;
+}
+
+.slogan {
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 123.8%;
+    /* or 25px */
+    color: #000000;
+}
+
+.titleResources,
+.titleCompany {
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 123.8%;
+    /* or 31px */
+
+    color: #000000;
+    margin-bottom: 50px;
+}
+
+.footerBottom {
+    display: flex;
+    justify-content: space-between;
+    padding: 61px 136px;
+}
+
+.footerBotLeft {
+    margin-right: 100px;
+}
+
+.copyRight,
+.titleBot {
+    font-weight: 300;
+    font-size: 25px;
+    line-height: 123.8%;
+    /* or 31px */
+    color: #000000;
+}

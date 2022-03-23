@@ -32,6 +32,7 @@
     "@polkadot/ui-settings": "^0.89.1",
     "@polkadot/util": "^8.3.1",
     "@polkadot/util-crypto": "^8.3.1",
+    "isexe": "^2.0.0",
     "node-polyfill-webpack-plugin": "^1.1.4",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
@@ -40,8 +41,10 @@
     "react-router-dom": "^6.2.1",
     "react-scripts": "^5.0.0",
     "react-semantic-ui-datepickers": "^2.16.2",
+    "react-slick": "^0.28.1",
     "semantic-ui-css": "Semantic-Org/Semantic-UI-CSS#master",
     "semantic-ui-react": "^2.1.1",
+    "slick-carousel": "^1.8.1",
     "stream-browserify": "^3.0.0"
   },
   "devDependencies": {

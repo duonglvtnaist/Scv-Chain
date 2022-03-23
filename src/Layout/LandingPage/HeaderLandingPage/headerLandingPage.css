@@ -1,0 +1,50 @@
+.headerLanding {
+    height: 112px;
+    background-color: #f8f8f8;
+    padding: 22px 0px 22px 0px;
+}
+
+.headerContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.headerLeft {
+}
+
+.headerLeft .logoSCV {
+    width: auto;
+    height: 68px;
+}
+
+.headerCenter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 22px;
+    width: 30%;
+}
+
+.Menu {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    height: 23px;
+}
+
+.headerRight {
+    text-align: right;
+    padding-top: 14px;
+}
+
+.SignUp {
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 19px;
+    padding: 7px 35px;
+    font-weight: 400;
+    font-size: 20px !important;
+    line-height: 24px; /* identical to box height */
+    text-align: center;
+}

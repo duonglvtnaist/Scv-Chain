@@ -1,4 +1,6 @@
 import React, { createRef } from 'react'
+// import '~slick-carousel/slick/slick.css'
+// import '~slick-carousel/slick/slick-theme.css'
 import {
   Container,
   Dimmer,
@@ -14,6 +16,7 @@ import { DeveloperConsole } from './substrate-lib/components'
 import SystemManage from './Layout/index'
 import AccountSelector from './AccountSelector'
 import Interactor from './Interactor'
+import LandingPage from './Layout/LandingPage/LandingPage'
 
 function Main() {
   const { apiState, apiError, keyringState } = useSubstrateState()
@@ -50,10 +53,10 @@ function Main() {
   const contextRef = createRef()
   return (
     <div>
-      
       {/* <AccountSelector />
       <Interactor /> */}
-      <SystemManage />
+      {/* <SystemManage /> */}
+      <LandingPage />
     </div>
   )
 }
