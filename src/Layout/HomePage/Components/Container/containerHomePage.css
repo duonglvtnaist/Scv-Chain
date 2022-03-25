@@ -1,0 +1,43 @@
+.contentHomePage {
+    background-color: #f3f3f3;
+    height: 100%;
+}
+
+.chooseRule {
+    display: flex;
+    justify-content: center;
+    padding: 60px 0 30px 0;
+}
+.chooseOrg {
+    width: 133.5px;
+    height: 38.68px;
+    padding: 8px 6px;
+    border: 2px solid #000000;
+
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+    color: #000000;
+    cursor: pointer;
+}
+.chooseTalent {
+    width: 133.5px;
+    height: 38.68px;
+    padding: 8px 6px;
+    background: #000000;
+    border: none;
+
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.iconSearch {
+    outline-offset: 0;
+    border: none;
+    cursor: pointer;
+}

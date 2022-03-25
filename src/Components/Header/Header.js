@@ -1,68 +1,39 @@
 import React, { Component } from 'react'
-import { Container, Dropdown, Icon, Image, Menu } from 'semantic-ui-react'
-import SidebarMenu from '../Sidebar/SidebarMenu'
-import MenuItem from '../Menu/MenuItem'
+import { Container, Image } from 'semantic-ui-react'
 import './header.css'
-import SysMan from '../Container/ApproveSysMan/ApproveSysMan'
-import Organization from '../Container/ApproveOrganization/ApproveOrganization'
-import { SidebarAccountType } from '../Data/Data'
-import { Link } from 'react-router-dom'
 
 export default class Header extends Component {
   render() {
     return (
-      <Menu
-        tabular
-        style={{
-          backgroundColor: 'rgb(0,151,202)',
-          border: 'none',
-          alignItems: 'center',
-          borderRadius: 'none',
-          padding: '10px',
-        }}
-      >
+      <div className="headerLandingHome">
         <Container>
-          <Menu.Menu>
-            <Link to="/home-page" className="link">
-              <Image
+          <div className="headerContainer">
+            <div className="headerLeft">
+              {/* <Image
                 src={`${process.env.PUBLIC_URL}/assets/logo-scv.png`}
-                className="logo"
-              />
-            </Link>
-          </Menu.Menu>
-          {/* <Menu.Menu position="right">
-            <SidebarMenu />
-          </Menu.Menu> */}
-          <Menu.Menu position="right">
-            <Dropdown icon="user" className="menu-parent">
-              <Dropdown.Menu className="menu-item">
-                <MenuItem
-                  link="/profile"
-                  title="Profile"
-                  nameIcon="user secret"
-                />
-                <MenuItem
-                  link="/edit-profile"
-                  title="Edit Profile"
-                  nameIcon="user secret"
-                />
-              </Dropdown.Menu>
-            </Dropdown>
-            <Dropdown text="Account Type" className="menu-parent">
-              <Dropdown.Menu>
-                {SidebarAccountType.map(MenuAccountType => (
-                  <MenuItem
-                    link={MenuAccountType.link}
-                    title={MenuAccountType.title}
-                    icon={MenuAccountType.icon}
-                    key={MenuAccountType.id}
-                  />
-                ))}
-              </Dropdown.Menu>
-            </Dropdown>
-          </Menu.Menu>
+                className="logoSCV"
+              /> */}
+              <p className="logoSCV">SMARTCV</p>
+            </div>
+            <div className="headerCenter">
+              <div className="Menu">Home</div>
+              <div className="Menu">Team</div>
+              <div className="Menu">Docs</div>
+            </div>
+            <div className="headerRight">
+              <button className="buttonConnectWallet">Connect wallet</button>
+              <button className="buttonSignIn">Sign in</button>
+              <button className="buttonSignup">Sign up</button>
+            </div>
+          </div>
         </Container>
-      </Menu>
+
+        <div className="headerButton">
+          <div className="headerButtonUpLoad">UPLOAD SCHOLARSHIP</div>
+          <div className="headerButtonPostJob">POST JOB</div>
+          <div className="headerButtonCreateCV">CREATE CV</div>
+        </div>
+      </div>
     )
   }
 }

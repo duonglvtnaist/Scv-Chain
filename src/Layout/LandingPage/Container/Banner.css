@@ -47,6 +47,7 @@
     line-height: 35px;
     text-align: center;
     color: #ffffff;
+    cursor: pointer;
 }
 
 .buttonSignUp {
@@ -64,6 +65,7 @@
     line-height: 35px;
     text-align: center;
     color: #ffffff;
+    cursor: pointer;
 }
 
 /* Css Introduce */

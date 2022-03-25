@@ -10,19 +10,21 @@
     justify-content: space-around;
 }
 
-.headerLeft {
-}
-
-.headerLeft .logoSCV {
-    width: auto;
-    height: 68px;
+.logoSCV {
+    /* width: auto;
+    height: 68px; */
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 59px;
+    text-align: center;
+    color: #090909;
 }
 
 .headerCenter {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    padding-top: 22px;
+    align-items: center;
     width: 30%;
 }
 
@@ -34,8 +36,11 @@
 }
 
 .headerRight {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     text-align: right;
-    padding-top: 14px;
 }
 
 .SignUp {
@@ -47,4 +52,5 @@
     font-size: 20px !important;
     line-height: 24px; /* identical to box height */
     text-align: center;
+    cursor: pointer;
 }

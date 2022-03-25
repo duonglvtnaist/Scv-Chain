@@ -8,10 +8,11 @@ export default function HeaderLanding() {
       <Container>
         <div className="headerContainer">
           <div className="headerLeft">
-            <Image
+            {/* <Image
               src={`${process.env.PUBLIC_URL}/assets/logo-scv.png`}
               className="logoSCV"
-            />
+            /> */}
+            <p className="logoSCV">SMARTCV</p>
           </div>
           <div className="headerCenter">
             <div className="Menu">Home</div>

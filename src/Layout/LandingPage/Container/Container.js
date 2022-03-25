@@ -8,6 +8,7 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import PartnerOctopus from '../../../assets/Image/octopus.png'
 import PartnerNear from '../../../assets/Image/logoNear.png'
+import { Link } from 'react-router-dom'
 
 export default function ContainerLanding() {
   let settings = {
@@ -31,7 +32,9 @@ export default function ContainerLanding() {
           <br /> Smart Matching.
           <br /> High Privacy Protection.
         </span>
-        <button className="buttonUseApp">Use App</button>
+        <Link to="/home-page">
+          <button className="buttonUseApp">Use App</button>
+        </Link>
         <button className="buttonSignUp">Sign up</button>
       </div>
 

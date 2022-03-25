@@ -178,3 +178,53 @@ export const MemberListData = [
       'https://dbk.vn/uploads/ckfinder/images/tranh-anh/hinh-nen-cute-1.jpg',
   },
 ]
+
+export const workingType = [
+  {
+    key: 'Jenny Hess',
+    text: 'Jenny Hess',
+    value: 'Jenny Hess',
+  },
+  {
+    key: 'Elliot Fu',
+    text: 'Elliot Fu',
+    value: 'Elliot Fu',
+  },
+]
+export const category = [
+  {
+    key: 'Stevie Feliciano',
+    text: 'Stevie Feliciano',
+    value: 'Stevie Feliciano',
+  },
+  {
+    key: 'Christian',
+    text: 'Christian',
+    value: 'Christian',
+  },
+]
+export const position = [
+  {
+    key: 'Matt',
+    text: 'Matt',
+    value: 'Matt',
+  },
+  {
+    key: 'Justen Kitsune',
+    text: 'Justen Kitsune',
+    value: 'Justen Kitsune',
+  },
+]
+
+export const experience = [
+  {
+    key: 'Matt',
+    text: 'Matt',
+    value: 'Matt',
+  },
+  {
+    key: 'Justen Kitsune',
+    text: 'Justen Kitsune',
+    value: 'Justen Kitsune',
+  },
+]

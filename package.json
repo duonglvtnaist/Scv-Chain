@@ -4,7 +4,7 @@
   "private": true,
   "author": "Parity Technologies <admin@parity.io>",
   "license": "Unlicense",
-  "homepage": "https://substrate-developer-hub.github.io/home-page",
+  "homepage": "https://substrate-developer-hub.github.io/",
   "bugs": {
     "url": "https://github.com/substrate-developer-hub/substrate-front-end-template/issues"
   },

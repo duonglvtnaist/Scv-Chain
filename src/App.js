@@ -1,22 +1,10 @@
 import React, { createRef } from 'react'
-// import '~slick-carousel/slick/slick.css'
-// import '~slick-carousel/slick/slick-theme.css'
-import {
-  Container,
-  Dimmer,
-  Loader,
-  Grid,
-  Sticky,
-  Message,
-} from 'semantic-ui-react'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import 'semantic-ui-css/semantic.min.css'
-
-import { SubstrateContextProvider, useSubstrateState } from './substrate-lib'
-import { DeveloperConsole } from './substrate-lib/components'
-import SystemManage from './Layout/index'
-import AccountSelector from './AccountSelector'
-import Interactor from './Interactor'
+import { Dimmer, Grid, Loader, Message } from 'semantic-ui-react'
+import HomePage from './Layout/HomePage/HomePage'
 import LandingPage from './Layout/LandingPage/LandingPage'
+import { SubstrateContextProvider, useSubstrateState } from './substrate-lib'
 
 function Main() {
   const { apiState, apiError, keyringState } = useSubstrateState()
@@ -52,12 +40,12 @@ function Main() {
 
   const contextRef = createRef()
   return (
-    <div>
-      {/* <AccountSelector />
-      <Interactor /> */}
-      {/* <SystemManage /> */}
-      <LandingPage />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<LandingPage />}></Route>
+        <Route path="/home-page" element={<HomePage />}></Route>
+      </Routes>
+    </Router>
   )
 }
 
