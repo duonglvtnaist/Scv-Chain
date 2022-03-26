@@ -1,0 +1,147 @@
+.login {
+    background-color: #ffffff;
+    height: 100vh;
+    margin: 0 auto;
+}
+
+.infoAddress {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    left: 80%;
+    top: 36px;
+}
+
+.wallet {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #090909 !important;
+    border-radius: 50%;
+}
+
+.iconWallet {
+    width: 42px;
+    height: 42px;
+    filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.1));
+    padding: 10px 9px;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.addressDetail {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 138px;
+    height: 45px;
+    background: #f2f6ff;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 19px;
+    padding: 10px;
+}
+
+.textAddress {
+    width: 68px;
+    height: 30px;
+    font-weight: 400;
+    font-size: 18px;
+    color: #000000;
+    text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+    padding-top: 5px;
+}
+
+.textAddress:hover {
+    text-overflow: clip;
+    word-wrap: break-word;
+}
+
+.loginCenter {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 120px;
+}
+
+.titleLogin {
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 59px;
+    text-align: center;
+    /* Text */
+    color: #090909;
+    margin-bottom: 30px;
+}
+
+.iconUser {
+}
+
+.loginForm {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.inputInfo,
+.inputPassword {
+    margin-bottom: 42px;
+    border: none;
+    border-bottom: 3px solid #000000;
+    width: 300px;
+    padding: 5px;
+}
+
+.inputInfo,
+.inputPassword:focus {
+    outline: none;
+}
+
+.buttonLogin {
+    border-radius: 29px !important;
+    background-color: #000000 !important;
+    height: 59px !important;
+    margin-top: 10px !important;
+    font-weight: 700 !important;
+    font-size: 24px !important;
+    line-height: 28px !important;
+    text-transform: uppercase !important;
+    color: #ffffff !important;
+    padding: 13px 37px;
+    margin-right: 0px !important;
+}
+
+.forgotPassword {
+    text-align: center;
+    margin-top: 22px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    color: #090909;
+}
+
+.recoverPassword {
+    color: #4167d8;
+    cursor: pointer;
+}
+
+.dontHaveAccount {
+    margin: 46px 0;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    color: #000000;
+}
+
+.textSignUp {
+    color: #4167d8;
+    cursor: pointer;
+}

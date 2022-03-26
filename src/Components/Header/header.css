@@ -43,6 +43,7 @@ body {
     text-align: center;
     color: #000000;
     margin: 0 9px;
+    cursor: pointer;
 }
 .buttonSignup {
     width: 107px;

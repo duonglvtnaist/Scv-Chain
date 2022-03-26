@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Container, Image } from 'semantic-ui-react'
 import './header.css'
+import { Link } from 'react-router-dom'
 
 export default class Header extends Component {
   render() {
@@ -22,8 +23,12 @@ export default class Header extends Component {
             </div>
             <div className="headerRight">
               <button className="buttonConnectWallet">Connect wallet</button>
-              <button className="buttonSignIn">Sign in</button>
-              <button className="buttonSignup">Sign up</button>
+              <Link to="/login">
+                <button className="buttonSignIn">Sign in</button>
+              </Link>
+              <Link to="/sign-up">
+                <button className="buttonSignup">Sign up</button>
+              </Link>
             </div>
           </div>
         </Container>

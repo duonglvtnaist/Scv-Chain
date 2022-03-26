@@ -5,6 +5,8 @@ import { Dimmer, Grid, Loader, Message } from 'semantic-ui-react'
 import HomePage from './Layout/HomePage/HomePage'
 import LandingPage from './Layout/LandingPage/LandingPage'
 import { SubstrateContextProvider, useSubstrateState } from './substrate-lib'
+import Login from './Components/Login/Login'
+import SignUp from './Components/SignUp/SignUp'
 
 function Main() {
   const { apiState, apiError, keyringState } = useSubstrateState()
@@ -44,6 +46,8 @@ function Main() {
       <Routes>
         <Route path="/" element={<LandingPage />}></Route>
         <Route path="/home-page" element={<HomePage />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/sign-up" element={<SignUp />}></Route>
       </Routes>
     </Router>
   )
