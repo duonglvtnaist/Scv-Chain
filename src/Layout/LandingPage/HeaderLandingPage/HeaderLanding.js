@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Container, Grid, Image } from 'semantic-ui-react'
 import './headerLandingPage.css'
 
@@ -20,7 +21,9 @@ export default function HeaderLanding() {
             <div className="Menu">Docs</div>
           </div>
           <div className="headerRight">
-            <button className="SignUp">Sign up</button>
+            <Link to="/sign-up">
+              <button className="SignUp">Sign up</button>
+            </Link>
           </div>
         </div>
       </Container>

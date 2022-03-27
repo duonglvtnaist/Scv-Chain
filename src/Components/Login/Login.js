@@ -27,9 +27,11 @@ export default function Login() {
               className="inputPassword"
               type="password"
             />
-            <Button type="submit" className="buttonLogin">
-              LOG IN
-            </Button>
+            <Link to="/dashboard">
+              <Button type="submit" className="buttonLogin">
+                LOG IN
+              </Button>
+            </Link>
             <div className="forgotPassword">
               Forgot <span className="recoverPassword">password</span>?
             </div>

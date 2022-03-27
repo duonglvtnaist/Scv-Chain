@@ -1,0 +1,78 @@
+.profile {
+    width: 86%;
+    height: 100vh;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 16px 50px;
+}
+
+.userProfile {
+    width: 100%;
+    height: 50%;
+    background: #959595;
+}
+
+.userInfo {
+    width: 65%;
+    height: 50%;
+    margin: 0 auto;
+    background: #f3f3f3;
+    border-radius: 106px;
+    position: absolute;
+    left: 30%;
+    top: 230px;
+}
+
+.userInfoDetail {
+    display: flex;
+    justify-content: center;
+    padding-top: 80px;
+}
+
+.userInfoName {
+    display: flex;
+    flex-direction: column;
+}
+
+.userName {
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 59px;
+    text-align: center;
+    /* Text */
+    color: #090909;
+}
+
+.userAddress {
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 35px;
+    text-align: center;
+
+    color: #000000;
+}
+
+.buttonEditProfile {
+    width: 169px;
+    height: 50px;
+    background: #ef6565;
+    border-radius: 19px;
+    position: absolute;
+    left: 80%;
+    top: 80px;
+    padding: 9px 26px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.editProfile {
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 29px;
+    color: #ffffff;
+}

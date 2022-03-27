@@ -1,0 +1,45 @@
+.sidebar {
+    width: 350px;
+    height: 100vh;
+    background-color: black;
+    padding: 86px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menuDashboard {
+    display: flex;
+    border-radius: 27px;
+    padding-bottom: 1rem;
+    align-items: center;
+    cursor: pointer;
+}
+
+.iconMenu {
+    color: white;
+    width: 60px !important;
+    height: 60px !important;
+    padding-top: 12px;
+}
+
+.textMenu {
+    color: white;
+    text-align: center;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 35px;
+    color: #ffffff;
+}
+
+.menuDashboard:hover {
+    background-color: #959595;
+}
+
+.menuDashboard:active {
+    background-color: #959595;
+}
+
+.buttonLogOut {
+}

@@ -1,0 +1,103 @@
+.editProfileMain {
+    backdrop-filter: blur(150px);
+    padding: 70px;
+}
+
+.formInput {
+    width: 50%;
+}
+
+.formField {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 56px;
+}
+
+.formField label,
+.formCheck label {
+    font-weight: 400 !important;
+    font-size: 22px !important;
+    line-height: 28px !important;
+    text-align: right !important;
+    color: #090909 !important;
+}
+.inputProfile {
+    width: 70% !important;
+    height: 56px;
+    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.1) !important;
+    border-radius: 28px !important;
+    font-size: 18px !important;
+}
+
+.formCheck {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+.infoRight {
+    margin-right: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.userImg {
+    width: 196px;
+    height: 196px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+.userName {
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 59px;
+    text-align: center;
+    color: #090909;
+    margin-bottom: 30px !important;
+}
+.addressInfo {
+    width: 138px;
+    height: 45px;
+    background-color: #090909;
+    /* Drop */
+
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 19px;
+
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    padding: 13px 26px;
+    color: #ffffff;
+
+    /* Drop */
+
+    text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.editProfileBot {
+    width: 50%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.iconBack {
+    padding: 5px 70px;
+}
+
+.buttonSave {
+    width: 137px;
+    height: 50px;
+    background: #090909;
+    border-radius: 20px;
+    border: none;
+
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    color: #ffffff;
+    cursor: pointer;
+}
